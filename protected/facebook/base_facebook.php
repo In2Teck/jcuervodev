@@ -135,8 +135,6 @@ abstract class BaseFacebook
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT        => 60,
     CURLOPT_USERAGENT      => 'facebook-php-3.2',
-	CURLOPT_SSL_VERIFYPEER => false,
-    CURLOPT_SSL_VERIFYHOST => 2
   );
 
   /**
@@ -264,7 +262,7 @@ abstract class BaseFacebook
    *
    * @param string $apiSecret The App Secret
    * @return BaseFacebook
-   * @deprecated
+   * @deprecated Use setAppSecret instead.
    */
   public function setApiSecret($apiSecret) {
     $this->setAppSecret($apiSecret);
@@ -286,7 +284,7 @@ abstract class BaseFacebook
    * Get the App Secret.
    *
    * @return string the App Secret
-   * @deprecated
+   * @deprecated Use getAppSecret instead.
    */
   public function getApiSecret() {
     return $this->getAppSecret();
@@ -322,11 +320,10 @@ abstract class BaseFacebook
   }
 
   /**
-   * DEPRECATED! Please use getFileUploadSupport instead.
-   *
    * Get the file upload support status.
    *
    * @return boolean true if and only if the server supports file upload.
+   * @deprecated Use getFileUploadSupport instead.
    */
   public function useFileUploadSupport() {
     return $this->getFileUploadSupport();
@@ -651,7 +648,7 @@ abstract class BaseFacebook
   public function api(/* polymorphic */) {
     $args = func_get_args();
     if (is_array($args[0])) {
-      //return $this->_restserver($args[0]);
+      return $this->_restserver($args[0]);
     } else {
       return call_user_func_array(array($this, '_graph'), $args);
     }
@@ -734,7 +731,7 @@ abstract class BaseFacebook
    * @return string The application access token, useful for gathering
    *                public information about users and applications.
    */
-  protected function getApplicationAccessToken() {
+  public function getApplicationAccessToken() {
     return $this->appId.'|'.$this->appSecret;
   }
 
@@ -781,7 +778,6 @@ abstract class BaseFacebook
                           'client_secret' => $this->getAppSecret(),
                           'redirect_uri' => $redirect_uri,
                           'code' => $code));
-		//echo "-------Access Token = ".$access_token_response;
     } catch (FacebookApiException $e) {
       // most likely that user very recently revoked authorization.
       // In any event, we don't have an access token, so say so.
@@ -902,6 +898,10 @@ abstract class BaseFacebook
       $params['access_token'] = $this->getAccessToken();
     }
 
+    if (isset($params['access_token'])) {
+      $params['appsecret_proof'] = $this->getAppSecretProof($params['access_token']);
+    }
+
     // json_encode all params values that are not strings
     foreach ($params as $key => $value) {
       if (!is_string($value)) {
@@ -910,6 +910,19 @@ abstract class BaseFacebook
     }
 
     return $this->makeRequest($url, $params);
+  }
+
+  /**
+   * Generate a proof of App Secret
+   * This is required for all API calls originating from a server
+   * It is a sha256 hash of the access_token made using the app secret
+   *
+   * @param string $access_token The access_token to be hashed (required)
+   *
+   * @return string The sha256 hash of the access_token
+   */
+  protected function getAppSecretProof($access_token) {
+    return hash_hmac('sha256', $access_token, $this->getAppSecret());
   }
 
   /**
