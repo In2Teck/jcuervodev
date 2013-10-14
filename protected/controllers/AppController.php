@@ -155,12 +155,17 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     }
 
 
-
+var $oauth_url = 'https://www.facebook.com/dialog/oauth/';
+  $oauth_url .= '?client_id=342733185828640';
+  $oauth_url .= '&redirect_uri='.'https://www.facebook.com/JCEspecial?sk=app_342733185828640';
+  $oauth_url .= '&scope=email,read_stream,user_likes,publish_actions,publish_stream,offline_access,user_photos'
 
 
 echo $loginUrl."<br>";
 //print_r($user_profile);
 echo $user;
+
+echo $oauth_url;
 
 /*
     //REQUEST IS FAN

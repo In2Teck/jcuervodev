@@ -59,7 +59,7 @@ if (referrerIsFacebookApp()) {
   
 
 document.getElementById("login").onclick = function() {
-      //window.top.location = "<?echo $loginUrl; ?>";
+      window.top.location = "<?echo $loginUrl; ?>";
       window.top.location=oauth_url;
   return false;
   }
