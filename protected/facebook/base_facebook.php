@@ -687,6 +687,9 @@ abstract class BaseFacebook
    *               code could not be determined.
    */
   protected function getCode() {
+
+    print_r($_REQUEST);
+    
     if (isset($_REQUEST['code'])) {
       if ($this->state !== null &&
           isset($_REQUEST['state']) &&
