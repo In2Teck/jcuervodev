@@ -694,6 +694,8 @@ abstract class BaseFacebook
           isset($_GET['state']) &&
           $this->state === $_GET['state']) {
 
+        echo "entro";
+
         // CSRF state has done its job, so clear it
         $this->state = null;
         $this->clearPersistentData('state');
