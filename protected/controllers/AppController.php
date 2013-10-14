@@ -125,6 +125,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     'cookie' => true
     ));
    
+
+   print_r($facebook);
     $user =$facebook->getUser();
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
