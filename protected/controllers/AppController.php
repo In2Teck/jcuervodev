@@ -208,7 +208,7 @@ if ($user) {
 
 
 
-
+/*
 
     if($user){
         $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
@@ -333,6 +333,7 @@ if ($user) {
        $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
     }
 
+*/
 
 
 
