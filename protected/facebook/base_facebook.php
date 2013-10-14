@@ -687,15 +687,11 @@ abstract class BaseFacebook
    *               code could not be determined.
    */
   protected function getCode() {
-
-echo $_GET['code'];
-
     if (isset($_GET['code'])) {
       if ($this->state !== null &&
           isset($_GET['state']) &&
           $this->state === $_GET['state']) {
 
-        echo "entro";
 
         // CSRF state has done its job, so clear it
         $this->state = null;

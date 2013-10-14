@@ -120,6 +120,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
    $facebook = new facebook(array(
     'appId'  => '342733185828640',
     'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
+    'cookie' => true
     ));
    
     $user =$facebook->getUser();
@@ -154,7 +155,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     }
 
 echo $loginUrl."<br>";
-print_r($user);
+//print_r($user_profile);
 
 
 /*
