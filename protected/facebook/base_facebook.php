@@ -688,17 +688,16 @@ abstract class BaseFacebook
    */
   protected function getCode() {
 
-    print_r($_GET);
 
-    if (isset($_REQUEST['code'])) {
+    if (isset($_GET['code'])) {
       if ($this->state !== null &&
-          isset($_REQUEST['state']) &&
-          $this->state === $_REQUEST['state']) {
+          isset($_GET['state']) &&
+          $this->state === $_GET['state']) {
 
         // CSRF state has done its job, so clear it
         $this->state = null;
         $this->clearPersistentData('state');
-        return $_REQUEST['code'];
+        return $_GET['code'];
       } else {
         self::errorLog('CSRF state token does not match one provided.');
         return false;
