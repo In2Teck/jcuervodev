@@ -22,12 +22,12 @@ function referrerIsFacebookApp() {
   }
   return false;
 }
-
+/*
 if (referrerIsFacebookApp()) {
     top.location = 'https://www.facebook.com/JCEspecial/app_342733185828640';
 
   }
-
+*/
 
 </script>
 </head>
