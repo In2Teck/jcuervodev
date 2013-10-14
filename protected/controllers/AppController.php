@@ -123,36 +123,32 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     'cookie' => true
     ));
    
-    $user =$facebook->getUser();
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
     $album_id = 'blank';
 
 
 
-    if ($user) {
-      
-       try {
-          
-          $user_profile =  $facebook->api('/me');
-        
-        } catch (FacebookApiException $e) {
-           //error_log($e);
-          // $user = null;
-         }
-         
-     }
+    
+$user = $facebook->getUser();
+$loginUrl = $facebook->getLoginUrl(
+        array(
+            'scope' => 'email'
+        )
+);
 
-     
+if ($user) {
+  try {
+    //get user basic description
+    $userInfo = $facebook->api("/$user");
+    $fb_access_token = $facebook->getAccessToken();
+  } catch (FacebookApiException $e) {
+    //you should use error_log($e); instead of printing the info on browser
+    error_log('APP ERROR: '.$e); 
+    $user = null;
+  }
 
 
-    if ($user) {
-        $logoutUrl = $facebook->getLogoutUrl();
-    } else {
-        //$loginUrl = $facebook->getLoginUrl(array('scope' => 'publish_actions,publish_stream,email,user_birthday,read_stream,user_photos','redirect_uri'=>'http://www.facebook.com/JCEspecial?sk=app_342733185828640'));
-        $loginUrl = $facebook->getLoginUrl(array('scope' => 'publish_actions,publish_stream,email,user_birthday,read_stream,user_photos'));
-
-    }
 
 echo $loginUrl."<br>";
 //print_r($user_profile);
