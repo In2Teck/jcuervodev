@@ -145,6 +145,7 @@ abstract class BaseFacebook
     'code',
     'state',
     'signed_request',
+    'base_domain'
   );
 
   /**
