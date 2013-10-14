@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 class AppController extends Controller
 {
   public $layout='//layouts/main';
