@@ -154,6 +154,22 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
     }
 
+
+$config['appbaseurl'] = "https://www.facebook.com/JCEspecial/app_342733185828640";
+
+
+if (!$user) {
+    echo "<script type='text/javascript'>top.location.href = '$loginUrl';</script>";
+    exit;
+}
+
+if (isset($_GET['code'])){
+    header("Location: " . $config['appbaseurl']);
+    exit;
+}
+
+
+
 echo $loginUrl."<br>";
 //print_r($user_profile);
 echo $user;
