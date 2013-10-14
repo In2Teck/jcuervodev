@@ -135,8 +135,6 @@ abstract class BaseFacebook
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT        => 60,
     CURLOPT_USERAGENT      => 'facebook-php-3.2',
-    CURLOPT_SSL_VERIFYPEER => false,
-    CURLOPT_SSL_VERIFYHOST => 2
   );
 
   /**
@@ -147,7 +145,6 @@ abstract class BaseFacebook
     'code',
     'state',
     'signed_request',
-    'base_domain'
   );
 
   /**
@@ -265,7 +262,7 @@ abstract class BaseFacebook
    *
    * @param string $apiSecret The App Secret
    * @return BaseFacebook
-   * @deprecated Use setAppSecret instead.
+   * @deprecated
    */
   public function setApiSecret($apiSecret) {
     $this->setAppSecret($apiSecret);
@@ -287,7 +284,7 @@ abstract class BaseFacebook
    * Get the App Secret.
    *
    * @return string the App Secret
-   * @deprecated Use getAppSecret instead.
+   * @deprecated
    */
   public function getApiSecret() {
     return $this->getAppSecret();
@@ -323,10 +320,11 @@ abstract class BaseFacebook
   }
 
   /**
+   * DEPRECATED! Please use getFileUploadSupport instead.
+   *
    * Get the file upload support status.
    *
    * @return boolean true if and only if the server supports file upload.
-   * @deprecated Use getFileUploadSupport instead.
    */
   public function useFileUploadSupport() {
     return $this->getFileUploadSupport();
@@ -690,16 +688,15 @@ abstract class BaseFacebook
    *               code could not be determined.
    */
   protected function getCode() {
-    if (isset($_GET['code'])) {
+    if (isset($_REQUEST['code'])) {
       if ($this->state !== null &&
-          isset($_GET['state']) &&
-          $this->state === $_GET['state']) {
-
+          isset($_REQUEST['state']) &&
+          $this->state === $_REQUEST['state']) {
 
         // CSRF state has done its job, so clear it
         $this->state = null;
         $this->clearPersistentData('state');
-        return $_GET['code'];
+        return $_REQUEST['code'];
       } else {
         self::errorLog('CSRF state token does not match one provided.');
         return false;
@@ -735,7 +732,7 @@ abstract class BaseFacebook
    * @return string The application access token, useful for gathering
    *                public information about users and applications.
    */
-  public function getApplicationAccessToken() {
+  protected function getApplicationAccessToken() {
     return $this->appId.'|'.$this->appSecret;
   }
 
@@ -902,10 +899,6 @@ abstract class BaseFacebook
       $params['access_token'] = $this->getAccessToken();
     }
 
-    if (isset($params['access_token'])) {
-      $params['appsecret_proof'] = $this->getAppSecretProof($params['access_token']);
-    }
-
     // json_encode all params values that are not strings
     foreach ($params as $key => $value) {
       if (!is_string($value)) {
@@ -914,19 +907,6 @@ abstract class BaseFacebook
     }
 
     return $this->makeRequest($url, $params);
-  }
-
-  /**
-   * Generate a proof of App Secret
-   * This is required for all API calls originating from a server
-   * It is a sha256 hash of the access_token made using the app secret
-   *
-   * @param string $access_token The access_token to be hashed (required)
-   *
-   * @return string The sha256 hash of the access_token
-   */
-  protected function getAppSecretProof($access_token) {
-    return hash_hmac('sha256', $access_token, $this->getAppSecret());
   }
 
   /**
