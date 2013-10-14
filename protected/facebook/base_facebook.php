@@ -688,7 +688,7 @@ abstract class BaseFacebook
    */
   protected function getCode() {
 
-
+print_r($_GET);
     if (isset($_GET['code'])) {
       if ($this->state !== null &&
           isset($_GET['state']) &&
