@@ -165,13 +165,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
   $oauth_url .= '&scope=email,read_stream,user_likes,publish_actions,publish_stream,offline_access,user_photos';
 
 
-//echo $loginUrl."<br>";
-//print_r($user_profile);
-echo $user;
 
-echo $oauth_url;
-
-/*
     //REQUEST IS FAN
     if ($_REQUEST && isset($_REQUEST['signed_request'])) {
      
@@ -180,8 +174,6 @@ echo $oauth_url;
     
     } 
 
-
-*/
 
 
 
@@ -223,7 +215,6 @@ if ($user) {
 
 
 
-/*
 
     if($user){
         $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
@@ -347,10 +338,6 @@ if ($user) {
        $comics = UsuariosHasTblComics::getComicsSplash();
        $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
     }
-
-
-
-*/
 
 
   }
