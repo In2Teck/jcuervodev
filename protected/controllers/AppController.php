@@ -134,7 +134,7 @@ $fb = new facebook(array(
 $fb->setAccessToken($_COOKIE['fbsr_'.'342733185828640']);
 
 // It should work now
-var_dump($fb->getUser());
+$user=$fb->getUser();
 
 
  /*  $facebook = new facebook(array(
@@ -144,7 +144,7 @@ var_dump($fb->getUser());
     
     $user = $facebook->getUser();
 
-
+*/
 
 if ($user) {
   try {
@@ -156,7 +156,9 @@ if ($user) {
   }
 }
 
+print_r($user_profile);
 
+/*
 
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
