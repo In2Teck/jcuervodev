@@ -147,6 +147,7 @@ $user=$facebook->getUser();
 */
 $access_token = $facebook->getAccessToken();
 echo $access_token;
+$user_profile=array();
 
 
 if ($user) {
