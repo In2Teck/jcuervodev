@@ -125,16 +125,16 @@ print_r($data);
 
 
 // Startup the Facebook object
-$fb = new facebook(array(
+$facebook = new facebook(array(
     'appId'  => '342733185828640',
     'secret' => 'f645963f59ed7ee25410567dbfd0b73f'
 ));
 
 // Say we are using the token from the JS
-$fb->setAccessToken($_COOKIE['fbsr_'.'342733185828640']);
+$facebook->setAccessToken($_COOKIE['fbsr_'.'342733185828640']);
 
 // It should work now
-$user=$fb->getUser();
+$user=$facebook->getUser();
 
 
  /*  $facebook = new facebook(array(
