@@ -115,21 +115,12 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     //header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
    //header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
    
-  $facebook = new facebook(array(
+  $facebook = new Facebook(array(
       'appId'  => '342733185828640',
       'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
     ));
     $user = $facebook->getUser();
 
-    if ($user) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
-  } catch (FacebookApiException $e) {
-    echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
-    $user = null;
-  }
-}
 
 
 
