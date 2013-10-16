@@ -1,11 +1,6 @@
 <?php
 
 
-$facebook = new facebook(array(
-  'appId'  => '342733185828640',
-  'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
-));
-
 // See if there is a user from a cookie
 $user = $facebook->getUser();
 
@@ -41,12 +36,16 @@ if ($user) {
           oauth: true
         });
         FB.Event.subscribe('auth.login', function(response) {
-          window.location.reload();
+          window.location='/php2/jcuervodev/index.php/app/login';
         });
+        
         FB.Event.subscribe('auth.logout', function(response) {
           window.location.reload();
         });
       };
+     
+
+
       (function() {
         var e = document.createElement('script'); e.async = true;
         e.src = document.location.protocol +

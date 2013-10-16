@@ -116,6 +116,13 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
    //header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
    
 
+
+$facebook = new facebook(array(
+  'appId'  => '342733185828640',
+  'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
+));
+
+
 /*
 
     $album_name = 'MIS MEMES ESPECIAL';
@@ -275,7 +282,7 @@ echo $user;
 
 */
 
-    $this->renderPartial('//app/login');
+    $this->renderPartial('//app/login',array('facebook'=>$facebook));
   }
 
 
