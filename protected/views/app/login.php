@@ -13,7 +13,8 @@ if ($user) {
     $user = null;
   }
 }
-
+$access_token = $facebook->getAccessToken();
+Yii::app()->session['access_token']=$access_token;
 ?>
 <!DOCTYPE html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">

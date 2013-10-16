@@ -148,11 +148,10 @@ echo $user;
     $user = $facebook->getUser();
 
 */
-$access_token = $facebook->getAccessToken();
 //echo $access_token;
 //echo $user;
 $user_profile=array();
-$facebook->setAccessToken($access_token);
+$facebook->setAccessToken(Yii::app()->session['access_token']);
 
 
 
