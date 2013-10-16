@@ -131,10 +131,10 @@ $fb = new facebook(array(
 ));
 
 // Say we are using the token from the JS
-//$fb->setAccessToken($data['access_token']);
+$fb->setAccessToken($_COOKIE['fbsr_'.'342733185828640']);
 
 // It should work now
-//var_dump($fb->getUser());
+var_dump($fb->getUser());
 
 
  /*  $facebook = new facebook(array(
