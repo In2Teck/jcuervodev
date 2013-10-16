@@ -145,20 +145,8 @@ $user=$facebook->getUser();
     $user = $facebook->getUser();
 
 */
-echo $user;
-$user_profile=array();
+$access_token = $facebook->getAccessToken();
 
-if ($user) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
-  } catch (FacebookApiException $e) {
-    echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
-    $user = null;
-  }
-}
-
-print_r($user_profile);
 
 /*
 
