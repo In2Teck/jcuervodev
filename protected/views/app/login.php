@@ -31,6 +31,7 @@ if ($user) {
       window.fbAsyncInit = function() {
         FB.init({
           appId: '<?php echo $facebook->getAppID() ?>',
+          channelUrl : 'https://apps.t2omedia.com.mx/php2/jcuervodev/index.php/app/login', // Channel File for x-domain communication
           cookie: true,
           xfbml: true,
           oauth: true
