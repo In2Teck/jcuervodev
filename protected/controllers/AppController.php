@@ -152,7 +152,7 @@ if ($user) {
     } 
 
   
-print_r($user);
+     print_r($user_profile);
 
 
     if($user){
