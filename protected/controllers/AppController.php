@@ -328,7 +328,7 @@ if ($user) {
     }
 
     */
-
+$this->render('//applogin');
 
   }
 
