@@ -137,6 +137,8 @@ $facebook = new facebook(array(
 // It should work now
 $user=$facebook->getUser();
 
+echo $user;
+
 
  /*  $facebook = new facebook(array(
       'appId'  => '342733185828640',
