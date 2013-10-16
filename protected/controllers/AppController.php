@@ -120,7 +120,7 @@ $cookie = preg_replace("/^\"|\"$/i", "", $_COOKIE['fbsr_'.'342733185828640']);
 parse_str($cookie, $data);
 
 // Startup the Facebook object
-$fb = new Facebook(array(
+$fb = new facebook(array(
     'appId'  => '342733185828640',
     'secret' => 'f645963f59ed7ee25410567dbfd0b73f'
 ));
