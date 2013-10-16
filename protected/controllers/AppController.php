@@ -163,24 +163,22 @@ if(!isset(Yii::app()->session['access_token']))
 
 echo Yii::app()->session['access_token'];
 
+$params = array('access_token' => Yii::app()->session['access_token']);
+        $url = "https://graph.facebook.com/me";
+        $url .= '?' . http_build_query($params);
 
 
-if ($user) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me',array('access_token'=>Yii::app()->session['access_token']));
-  } catch (FacebookApiException $e) {
-    echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
-    $user = null;
-  }
-}
-
-if(is_array($user_profile)){
-print_r($user_profile);  
-}else{
-
-  echo "blala";
-}
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+    curl_setopt($ch, CURLOPT_USERAGENT ,'');
+    $output = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    curl_close($ch);
+   $output = json_decode($output);
+   echo $output;
 
 
 /*
