@@ -151,6 +151,10 @@ echo $user;
 //echo $access_token;
 //echo $user;
 $user_profile=array();
+
+$access_token = $facebook->getAccessToken();
+Yii::app()->session['access_token']=$access_token;
+
 $facebook->setAccessToken(Yii::app()->session['access_token']);
 
 echo Yii::app()->session['access_token'];
