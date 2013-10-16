@@ -152,7 +152,7 @@ if ($user) {
     } 
 
   
-
+print_r($user);
 
 
     if($user){
@@ -213,11 +213,6 @@ if ($user) {
             $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
 
            }
-
-
-
-
-
            
 
         }else{  
