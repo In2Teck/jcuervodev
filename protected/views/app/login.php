@@ -1,72 +1,58 @@
 <?php
-//header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
-?>
 
-<html>
-<head>
-<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/js/fancybox/jquery.fancybox.css">
-<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/styles.css">
 
-<script>
+$facebook = new facebook(array(
+  'appId'  => '342733185828640',
+  'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
+));
 
-function referrerIsFacebookApp() {
-  var isInIFrame = (window.location != window.parent.location) ? true : false;
-  
-  if (document.URL) {
-    if (isInIFrame) {
-      return document.URL.indexOf("apps.facebook.com") != -1;
-    } else {
-      return document.URL.indexOf("apps.t2omedia.com") != -1;
+// See if there is a user from a cookie
+$user = $facebook->getUser();
 
-    }
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
+    $user = null;
   }
-  return false;
 }
-/*
-if (referrerIsFacebookApp()) {
-    top.location = 'https://www.facebook.com/JCEspecial/app_342733185828640';
 
-  }
-*/
-
-</script>
-</head>
-<body>
-<div id="splash">
-      <h1>Memespecial<br><span>Generator</span></h1><a id="login"  class="btn">Genera tu meme</a>
-      <div>
-         <?php 
-
-            if(count($comics)>3){
-                    //print_r($comics);
-
-              foreach ($comics as $key => $value) { ?>
-                <div class="itemThumbnail"><div><a href="#"><img src="<?php echo Yii::app()->request->baseUrl."/Comics/".$value['imagen']; ?>"></a></div></div>
-            <?php
-              }
-            }
-        ?>
-      </div>
-    </div>
-
-<script>
-
-  var oauth_url = 'https://www.facebook.com/dialog/oauth/';
-  oauth_url += '?client_id=342733185828640';
-  oauth_url += '&redirect_uri=' + encodeURIComponent('https://www.facebook.com/JCEspecial?sk=app_342733185828640');
-  oauth_url += '&scope=email,read_stream,user_likes,publish_actions,publish_stream,offline_access,user_photos'
-
-  
-
-document.getElementById("login").onclick = function() {
-      window.top.location = "<?echo $loginUrl; ?>";
-      window.top.location=oauth_url;
-  return false;
-  }
-</script>
-</body>
+?>
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+  <body>
+    <?php if ($user) { ?>
+      Your user profile is
+      <pre>
+        <?php print htmlspecialchars(print_r($user_profile, true)) ?>
+      </pre>
+    <?php } else { ?>
+      <fb:login-button></fb:login-button>
+    <?php } ?>
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '<?php echo $facebook->getAppID() ?>',
+          cookie: true,
+          xfbml: true,
+          oauth: true
+        });
+        FB.Event.subscribe('auth.login', function(response) {
+          window.location.reload();
+        });
+        FB.Event.subscribe('auth.logout', function(response) {
+          window.location.reload();
+        });
+      };
+      (function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+          '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+      }());
+    </script>
+  </body>
 </html>
-
-
-
-
