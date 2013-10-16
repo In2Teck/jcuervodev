@@ -124,7 +124,15 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
 
 
-
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
+    $user = null;
+  }
+}
 
 
 
