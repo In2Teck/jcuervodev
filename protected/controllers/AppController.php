@@ -275,7 +275,7 @@ echo $user;
 
 */
 
-   // $this->renderPartial('//app/login');
+    $this->renderPartial('//app/login');
   }
 
 
