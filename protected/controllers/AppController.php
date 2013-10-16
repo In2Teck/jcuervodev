@@ -19,7 +19,7 @@ class AppController extends Controller
   {
     return array(
       array('allow',  // allow all users to perform 'index' and 'view' actions
-        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics'),
+        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin'),
         'users'=>array('*'),
       ),
       array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -117,10 +117,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
    
 
 
-$facebook = new facebook(array(
-  'appId'  => '342733185828640',
-  'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
-));
+
 
 
 /*
@@ -550,6 +547,17 @@ echo $user;
 
 print_r($json);
 
+
+  }
+
+  public function actionFBlogin(){
+   
+    $facebook = new facebook(array(
+      'appId'  => '342733185828640',
+      'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
+    ));
+
+    $this->renderPartial('//app/login',array('facebook'=>$facebook));
 
   }
   
