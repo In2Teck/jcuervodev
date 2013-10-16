@@ -159,11 +159,6 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     }
 
 
-   $oauth_url = 'https://www.facebook.com/dialog/oauth/';
-  $oauth_url .= '?client_id=342733185828640';
-  $oauth_url .= '&redirect_uri='.'https://www.facebook.com/JCEspecial?sk=app_342733185828640';
-  $oauth_url .= '&scope=email,read_stream,user_likes,publish_actions,publish_stream,offline_access,user_photos';
-
 
 
     //REQUEST IS FAN
@@ -205,14 +200,7 @@ if ($user) {
 */
 
 
-     //echo $loginUrl;
-    //print_r($user);
-
-    //echo "<a href='".$loginUrl."'>login</a>";
-    //Array ( [algorithm] => HMAC-SHA256 [expires] => 1367028000 [issued_at] => 1367022760 [oauth_token] => BAAE3tsnLRyABAMvDEnYZCpAZBbZAO2TwDS6Na5pAgBSCm5fZB6J0M7LZAxERlAqCCm52biNXkA8K6u73PPrXzMfv9tMNZAOvZAY7hfCCoBF7B0PVtlUWnIkBpnvkZCiFZADwTrjRXldKQo77SqwZCfzkD2oAzq3V5yHodkPndCpfqwv5FWowrmHHbywTlBX2HvqTQbdG2yMiHSBnuPLajhwXkhuLcR7GOIQw2i9cCBF6bBqgZDZD [page] => Array ( [id] => 573988472620627 [liked] => 1 [admin] => ) [user] => Array ( [country] => mx [locale] => es_LA [age] => Array ( [min] => 21 ) ) [user_id] => 100001421156741 )
-
-
-
+  /*
 
 
 
@@ -338,6 +326,8 @@ if ($user) {
        $comics = UsuariosHasTblComics::getComicsSplash();
        $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
     }
+
+    */
 
 
   }
