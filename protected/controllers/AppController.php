@@ -178,7 +178,7 @@ $params = array('access_token' => Yii::app()->session['access_token']);
     $info = curl_getinfo($ch);
     curl_close($ch);
    $output = json_decode($output);
-   echo $output;
+   print_r($output);
 
 
 /*
