@@ -115,7 +115,23 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     //header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
    //header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
    
-   print_r($_COOKIE);
+  
+$cookie = preg_replace("/^\"|\"$/i", "", $_COOKIE['fbsr_' . FB_APP_ID]);
+parse_str($cookie, $data);
+
+// Startup the Facebook object
+$fb = new Facebook(array(
+    'appId'  => '342733185828640',
+    'secret' => 'f645963f59ed7ee25410567dbfd0b73f'
+));
+
+// Say we are using the token from the JS
+$fb->setAccessToken($data['access_token']);
+
+// It should work now
+var_dump($fb->getUser());
+
+
  /*  $facebook = new facebook(array(
       'appId'  => '342733185828640',
       'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
