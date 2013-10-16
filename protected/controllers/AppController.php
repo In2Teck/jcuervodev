@@ -154,7 +154,7 @@ if ($user) {
   
      print_r($user_profile);
 
-
+/*
     if($user){
         $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
 
@@ -273,6 +273,7 @@ if ($user) {
        $this->renderPartial('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
+*/
   }
 
 
