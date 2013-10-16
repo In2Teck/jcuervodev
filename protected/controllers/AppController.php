@@ -328,7 +328,7 @@ if ($user) {
     }
 
     */
-$this->renderPartial('//applogin');
+$this->renderPartial('//app/login');
 
   }
 
