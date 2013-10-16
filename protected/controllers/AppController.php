@@ -275,7 +275,7 @@ if ($user) {
 
     }else{
        $comics = UsuariosHasTblComics::getComicsSplash();
-       $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
+       $this->renderPartial('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
   }
