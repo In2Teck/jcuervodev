@@ -148,6 +148,25 @@ $user=$facebook->getUser();
 $access_token = $facebook->getAccessToken();
 echo $access_token;
 
+
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
+    $user = null;
+  }
+}
+
+if(is_array($user_profile)){
+print_r($user_profile);  
+}else{
+
+  echo "blala";
+}
+
+
 /*
 
     $album_name = 'MIS MEMES ESPECIAL';
