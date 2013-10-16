@@ -141,7 +141,6 @@ if ($user) {
 }
 
 
-print_r($user_profile);
 
 
     //REQUEST IS FAN
@@ -152,40 +151,9 @@ print_r($user_profile);
     
     } 
 
-
-
-
-
-/*
-$facebook = new Facebook(array(
-    'appId'  => '342733185828640',
-    'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
-    ));
-
-$user = $facebook->getUser();
-if ($user) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
-  } catch (FacebookApiException $e) {
-    error_log($e);
-    $user = null;
-  }
-}
-if ($user) {
-  $logoutUrl = $facebook->getLogoutUrl();
-} else {
-  $loginUrl = $facebook->getLoginUrl(array('scope' => 'publish_actions,publish_stream,email,user_birthday,read_stream,user_photos'));
-}
-
-
-
-*/
-
-
   
 
-/*
+
 
     if($user){
         $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
@@ -308,10 +276,7 @@ if ($user) {
     }else{
        $comics = UsuariosHasTblComics::getComicsSplash();
        $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
-    }
-*/
-    
-    $this->renderPartial('//app/login');
+    }  
 
   }
 
