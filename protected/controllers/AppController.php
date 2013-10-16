@@ -145,7 +145,7 @@ $user=$facebook->getUser();
     $user = $facebook->getUser();
 
 */
-
+echo $user;
 if ($user) {
   try {
     // Proceed knowing you have a logged in user who's authenticated.
