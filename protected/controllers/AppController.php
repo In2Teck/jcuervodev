@@ -116,6 +116,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
    //header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
    
 
+    $user = $facebook->getUser();
 
 
 
@@ -279,7 +280,7 @@ echo $user;
 
 */
 
-    $this->renderPartial('//app/login',array('facebook'=>$facebook));
+    //$this->renderPartial('//app/login',array('facebook'=>$facebook));
   }
 
 
