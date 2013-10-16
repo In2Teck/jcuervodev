@@ -117,7 +117,12 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
    
   
 $cookie = preg_replace("/^\"|\"$/i", "", $_COOKIE['fbsr_'.'342733185828640']);
+
 parse_str($cookie, $data);
+
+print_r($data);
+
+
 
 // Startup the Facebook object
 $fb = new facebook(array(
@@ -126,10 +131,10 @@ $fb = new facebook(array(
 ));
 
 // Say we are using the token from the JS
-$fb->setAccessToken($data['access_token']);
+//$fb->setAccessToken($data['access_token']);
 
 // It should work now
-var_dump($fb->getUser());
+//var_dump($fb->getUser());
 
 
  /*  $facebook = new facebook(array(
