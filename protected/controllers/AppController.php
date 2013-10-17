@@ -172,7 +172,7 @@ print_r($user_profile);
 }
 
 
-
+/*
 
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
@@ -311,6 +311,7 @@ print_r($user_profile);
        $this->renderPartial('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
+*/
 
     //$this->renderPartial('//app/login',array('facebook'=>$facebook));
   }
