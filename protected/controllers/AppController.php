@@ -579,7 +579,6 @@ print_r($user_profile);
                                          'eliminar'=>$delete
                                          ));                
 
-print_r($json);
 
 
   }
