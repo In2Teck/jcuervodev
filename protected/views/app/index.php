@@ -5,8 +5,11 @@
 
           echo $userid."<br>";
          if($userid){
-         	$results = Yii::app()->facebook->api('/me'); 
-           // print_r($results);
+
+         	$accesToken = Yii::app()->facebook->getAccessToken();
+         	$results = Yii::app()->facebook->api('/me?access_token=' . $accesToken);
+         	//$results = Yii::app()->facebook->api('/me'); 
+           print_r($results);
          }else{
          	         echo '<a href="'.$loginUrl.'" >cambios </a> ';
 
