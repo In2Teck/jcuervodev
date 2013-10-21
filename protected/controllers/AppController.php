@@ -109,8 +109,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
       //$this->redirect(array('App/admin'));
     //}
       
-    //header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
-   //header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+    header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
+   header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
    
   
 //$cookie = preg_replace("/^\"|\"$/i", "", $_COOKIE['fbsr_'.'342733185828640']);
