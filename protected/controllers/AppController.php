@@ -125,11 +125,6 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
 
 // Startup the Facebook object
-$facebook = new facebook(array(
-    'appId'  => '342733185828640',
-    'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
-    'cookie'=>true
-));
 
 // Say we are using the token from the JS
 //$facebook->setAccessToken($_COOKIE['fbsr_'.'342733185828640']);
