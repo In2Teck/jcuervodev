@@ -152,10 +152,9 @@ echo $user;
 //echo $user;
    
 
-         $userid = Yii::app()->facebook->getUser(); 
-         $loginUrl = Yii::app()->facebook->getLoginUrl();
+       
 
-         if($userid){
+         if($user){
             $results = Yii::app()->facebook->api('/me'); 
             print_r($results);
          }else{
