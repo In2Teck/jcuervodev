@@ -585,11 +585,13 @@ print_r($user_profile);
 
   public function actionFBlogin(){
    
-    $facebook = new facebook(array(
+   
+$facebook = new facebook(array(
       'appId'  => '342733185828640',
       'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
       'cookie'=>true
           ));
+   
 
     $this->renderPartial('//app/login',array('facebook'=>$facebook));
 
