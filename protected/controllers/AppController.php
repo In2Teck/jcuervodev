@@ -133,7 +133,6 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
     $user = Yii::app()->facebook->getUser(); 
     $loginUrl = Yii::app()->facebook->getLoginUrl();
-    echo $user."<br>";
 
          if($user){
 
