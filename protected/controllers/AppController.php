@@ -581,6 +581,14 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
   }
 
+  public function actionIndex()
+  {
+    // renders the view file 'protected/views/site/index.php'
+    // using the default layout 'protected/views/layouts/main.php'
+    $this->render('index');
+
+
+  }
 
 
 
