@@ -109,8 +109,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
       //$this->redirect(array('App/admin'));
     //}
       
-    header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
-   header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+    //header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
+   //header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
    
   
 //$cookie = preg_replace("/^\"|\"$/i", "", $_COOKIE['fbsr_'.'342733185828640']);
@@ -131,22 +131,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
 
 
-   $userid = Yii::app()->facebook->getUser(); 
-         $loginUrl = Yii::app()->facebook->getLoginUrl();
+         
 
-          echo $userid."<br>";
-         if($userid){
-
-          $accesToken = Yii::app()->facebook->getAccessToken();
-          $results = Yii::app()->facebook->api('/me?access_token=' . $accesToken);
-          //$results = Yii::app()->facebook->api('/me'); 
-           print_r($results);
-         }else{
-                   echo '<a href="'.$loginUrl.'" >cambios </a> ';
-
-         }
-
-/*
 
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
@@ -271,9 +257,6 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
             }else{
                $this->renderPartial('//app/nofan',array('loginUrl'=>$loginUrl));
             }
-
-            
-
           
             
         }
@@ -285,7 +268,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
        $this->renderPartial('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
-    */
+  
 
   }
 
