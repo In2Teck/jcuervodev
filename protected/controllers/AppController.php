@@ -150,26 +150,20 @@ echo $user;
 */
 //echo $access_token;
 //echo $user;
-$user_profile=array();
+   
+
+         $userid = Yii::app()->facebook->getUser(); 
+         $loginUrl = Yii::app()->facebook->getLoginUrl();
+
+         if($userid){
+            $results = Yii::app()->facebook->api('/me'); 
+            print_r($results);
+         }else{
+                 //  echo '<a href="'.$loginUrl.'" >cambios </a> ';
+
+         }
 
 
-
-if ($user) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me',array());
-  } catch (FacebookApiException $e) {
-    echo '<pre>'.htmlspecialchars(print_r($e, true)).'</pre>';
-    $user = null;
-  }
-}
-
-if(is_array($user_profile)){
-print_r($user_profile);  
-}else{
-
-  echo "blala";
-}
 
 
 /*
@@ -313,7 +307,12 @@ print_r($user_profile);
 
 */
 
-    //$this->renderPartial('//app/login',array('facebook'=>$facebook));
+
+
+        
+
+
+    $this->renderPartial('//app/login',array('facebook'=>$facebook,'loginUrl'=>$loginUrl));
   }
 
 
@@ -586,15 +585,30 @@ print_r($user_profile);
   public function actionFBlogin(){
    
    
-$facebook = new facebook(array(
-      'appId'  => '342733185828640',
-      'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
-      'cookie'=>true
-          ));
-   
+      $userid = Yii::app()->facebook->getUser(); 
+      $loginUrl = Yii::app()->facebook->getLoginUrl();
 
-    $this->renderPartial('//app/login',array('facebook'=>$facebook));
+      if($userid){
+            $results = Yii::app()->facebook->api('/me'); 
+            print_r($results);
+      }else{
+                 //  echo '<a href="'.$loginUrl.'" >cambios </a> ';
+           $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl));
+
+      }
+
 
   }
+
+
+
+
+  protected function afterRender($view, &$output) {
+    parent::afterRender($view,$output);
+   //Yii::app()->facebook->addJsCallback($js); // use this if you are registering any $js code you want to run asyc
+   Yii::app()->facebook->initJs($output); // this initializes the Facebook JS SDK on all pages
+   Yii::app()->facebook->renderOGMetaTags(); // this renders the OG tags
+   return true;
+} 
   
 }
