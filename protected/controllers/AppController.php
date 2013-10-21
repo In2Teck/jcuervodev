@@ -140,9 +140,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
           $accesToken = Yii::app()->facebook->getAccessToken();
           $user_profile = Yii::app()->facebook->api('/me?access_token=' . $accesToken);
           //$results = Yii::app()->facebook->api('/me'); 
-           print_r($user_profile);
+          // print_r($user_profile);
          }else{
-                   echo '<a href="'.$loginUrl.'" >cambios </a> ';
+                   //echo '<a href="'.$loginUrl.'" >cambios </a> ';
 
          }
 
@@ -220,7 +220,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
            }else{
             $comics = UsuariosHasTblComics::getComicsSplash();
-            $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
+            $this->render('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
 
            }
            
@@ -267,7 +267,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
              }
               
             }else{
-               $this->renderPartial('//app/nofan',array('loginUrl'=>$loginUrl));
+               $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
             }
           
             
