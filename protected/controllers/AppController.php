@@ -135,10 +135,14 @@ $facebook = new facebook(array(
 //$facebook->setAccessToken($_COOKIE['fbsr_'.'342733185828640']);
 
 // It should work now
-$user=$facebook->getUser();
 
-echo $user;
+    $userid = Yii::app()->facebook->getUser(); 
 
+
+  if($userid){
+          $results = Yii::app()->facebook->api('/me'); 
+            print_r($results);
+         }
 
  /*  $facebook = new facebook(array(
       'appId'  => '342733185828640',
@@ -153,15 +157,6 @@ echo $user;
    
 
        
-
-         if($user){
-            $results = Yii::app()->facebook->api('/me'); 
-            print_r($results);
-         }else{
-                 //  echo '<a href="'.$loginUrl.'" >cambios </a> ';
-
-         }
-
 
 
 
