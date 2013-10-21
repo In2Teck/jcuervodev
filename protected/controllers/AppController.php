@@ -585,17 +585,9 @@ echo $user;
   public function actionFBlogin(){
    
    
-      $userid = Yii::app()->facebook->getUser(); 
-      $loginUrl = Yii::app()->facebook->getLoginUrl();
+     
 
-      if($userid){
-            $results = Yii::app()->facebook->api('/me'); 
-            print_r($results);
-      }else{
-                 //  echo '<a href="'.$loginUrl.'" >cambios </a> ';
-           $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl));
-
-      }
+           $this->renderPartial('//app/login');
 
 
   }
