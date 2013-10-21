@@ -131,7 +131,21 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
 
 
-         
+    $userid = Yii::app()->facebook->getUser(); 
+    $loginUrl = Yii::app()->facebook->getLoginUrl();
+
+    echo $userid."<br>";
+         if($userid){
+
+          $accesToken = Yii::app()->facebook->getAccessToken();
+          $results = Yii::app()->facebook->api('/me?access_token=' . $accesToken);
+          //$results = Yii::app()->facebook->api('/me'); 
+           print_r($results);
+         }else{
+                   echo '<a href="'.$loginUrl.'" >cambios </a> ';
+
+         }
+
 
 
     $album_name = 'MIS MEMES ESPECIAL';
