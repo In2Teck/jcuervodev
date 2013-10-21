@@ -128,31 +128,20 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
 // It should work now
 
-    $userid = Yii::app()->facebook->getUser(); 
+    $user = Yii::app()->facebook->getUser(); 
 
 
-  if($userid){
+  if($user){
           $results = Yii::app()->facebook->api('/me'); 
             print_r($results);
          }
 
- /*  $facebook = new facebook(array(
-      'appId'  => '342733185828640',
-      'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
-    ));
-    
-    $user = $facebook->getUser();
-
-*/
-//echo $access_token;
-//echo $user;
-   
 
        
 
 
 
-/*
+
 
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
@@ -291,14 +280,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
        $this->renderPartial('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
-*/
-
-
-
-        
-
-
-    $this->renderPartial('//app/login');
+    //$this->renderPartial('//app/login');
   }
 
 
