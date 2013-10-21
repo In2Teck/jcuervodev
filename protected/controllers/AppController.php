@@ -185,6 +185,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
         }
  
         if ($album_id == 'blank') {
+             
               $graph_url = "https://graph.facebook.com/me/albums?" . "access_token=". $user; 
               $album_data = array(
                   'name' => $album_name,
@@ -192,6 +193,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                   );
               $new_album = $facebook->api("me/albums", 'post', $album_data);
               $album_id = $new_album['id'];
+          
           }
 
           $response = new Usuarios;
@@ -224,12 +226,12 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
            }
            
 
-        }else{  
+        } else{  
           
          
             Yii::app()->session['usuario_id']=$response->id;
             Yii::app()->session['id_facebook']=$response->id_facebook;
-            Yii::app()->session['access_token']=$facebook->getAccessToken();
+            //Yii::app()->session['access_token']=$facebook->getAccessToken();
             Yii::app()->session['id_album']=$response->id_album;
             
             if(isset($data)){
