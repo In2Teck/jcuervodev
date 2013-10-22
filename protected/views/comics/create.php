@@ -128,7 +128,7 @@ $cs->registerScriptFile($baseUrl.'/js/slides.min.jquery.js');
 
 Yii::app()->getClientScript()->registerScript('registrar', '
   var url_miavatar = "'.$avatar['avatar_img'].'";
-  var BaseUrl = "/php2/jcuervo";
+  var BaseUrl = "'.Yii::app()->request->baseUrl.'";
   var angle,rotation,imageBackground,conf,halfx,halfy, currentSelected, layerComic, listenerStat, newangle, rotateLeft, rotateRight, saveToImage, sendBack, sendFront, stageComic,removeImage;
   currentSelected = null;
   currentText = null;
