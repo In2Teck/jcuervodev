@@ -271,8 +271,12 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                     $m=new Login;
                                     $m->username=$response->id;
                                      if($m->login()){
-                                      echo "camibos".$user_profile['id'];
+                                         
+                                          print_r($m);
+                                         echo "camibos".$user_profile['id'];
                                         //$this->redirect(array('App/Profile/'.$user_profile['id']));
+                                      
+
                                       }
                                      
                                     
@@ -306,6 +310,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     Yii::app()->user->logout();
   }
 
+
+
+
   public function actionProfile($id)
   {
     if($id==null) 
@@ -316,6 +323,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     if($response==null){
       throw new CHttpException(404,'The requested page does not exist.');
     }
+
+
     $avatarImg=$response->Avatar->avatar_img;
     $comics=UsuariosHasTblComics::getMyComics($response->id);
     $json['usuario']=array('nombre'=>$response->nombre,'id_facebook'=>$response->id_facebook,'sexo'=>$response->sexo,'avatar_img'=>$avatarImg);
