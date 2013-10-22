@@ -48,9 +48,9 @@ return array(
 		    //'fileUpload'=>false, // needed to support API POST requests which send files
 		    //'trustForwarded'=>false, // trust HTTP_X_FORWARDED_* headers ?
 		    //'locale'=>'en_US', // override locale setting (defaults to en_US)
-		    'jsSdk'=>false, // don't include JS SDK
-		    'async'=>false, // load JS SDK asynchronously
-		    'jsCallback'=>false, // declare if you are going to be inserting any JS callbacks to the async JS SDK loader
+		    //'jsSdk'=>false, // don't include JS SDK
+		    //'async'=>false, // load JS SDK asynchronously
+		    //'jsCallback'=>false, // declare if you are going to be inserting any JS callbacks to the async JS SDK loader
 		    //'status'=>true, // JS SDK - check login status
 		    'cookie'=>true, // JS SDK - enable cookies to allow the server to access the session
 		    //'oauth'=>true,  // JS SDK - enable OAuth 2.0
