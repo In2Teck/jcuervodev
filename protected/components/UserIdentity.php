@@ -23,7 +23,7 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 
-		$this->setState('title', $record->title);
+		$this->setState('title','Usuario');
 	    $this->errorCode=self::ERROR_NONE;
 		return $this->errorCode;
 	
