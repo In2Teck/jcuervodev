@@ -161,7 +161,7 @@ $(".share").live('click',function(){
       method: 'feed',
       redirect_uri: window.protocol+"memegenerator.in2teck.com/index.php",
       link: window.protocol+"memegenerator.in2teck.com/index.php",
-      picture: window.protocol+"memegenerator.in2teck.com/"+img,
+      picture: window.protocol+"memegenerator.in2teck.com"+img,
       name: 'Especial Meme Generator',
       caption: 'Crea tu meme',
       description: 'Me gusta este Meme, puedes verlo aquí'
