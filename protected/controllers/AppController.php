@@ -25,7 +25,7 @@ class AppController extends Controller
       ),
       array('allow', // allow admin user to perform 'admin' and 'delete' actions
         'actions'=>array('admin','delete','index'),
-        'roles'=>array('admin'),
+        'roles'=>array('Administrador'),
       ),
       array('deny',  // deny all users
         'users'=>array('*'),
