@@ -17,7 +17,7 @@ class AppController extends Controller
     return array(
       array('allow',  // allow all users to perform 'index' and 'view' actions
         'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index'),
-        'roles'=>array('*'),
+        'users'=>array('*'),
       ),
       array('allow', // allow authenticated user to perform 'create' and 'update' actions
         'actions'=>array('create','update','create','profile','UpdatePieza','CrearAvatar','UpdateTipoPieza','MisMemes','MisAmigos','Categoria','Dest','Catmasvist','Catmascomp','Catjoscuer','Catmascome','Detalle','F'),
