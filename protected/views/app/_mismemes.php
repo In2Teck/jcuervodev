@@ -27,9 +27,9 @@
          
 <div class="tabs">
   <? if(Yii::app()->session['id_facebook']==$json['usuario']['id_facebook']){ ?>
-  <a  href="<? echo Yii::app()->session['protocol']; ?>198.101.242.113/jcuervodev/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>"  class="mismemesmenu selectedTab">Mis Memes</a>
+  <a  href="<? echo Yii::app()->session['protocol']; ?>memegenerator.in2teck.com/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>"  class="mismemesmenu selectedTab">Mis Memes</a>
       <? } else {?>
-  <a  href="<? echo Yii::app()->session['protocol']; ?>198.101.242.113/jcuervodev/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>" class="mismemesmenu">Mis Memes</a>
+  <a  href="<? echo Yii::app()->session['protocol']; ?>memegenerator.in2teck.com/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>" class="mismemesmenu">Mis Memes</a>
   <? } ?>
   <a  id="misamigos"  class="menu" href="#">De mis amigos</a><a id="categoria" class="menu" href="#">Por categoría</a></div>
 <? if(Yii::app()->session['id_facebook']!=$json['usuario']['id_facebook']){ ?>
@@ -48,7 +48,7 @@
                   <?  }  ?>
                   
                   <? 
-                 echo '<div class="itemThumbnail"><div><a data-fancybox-type="iframe" href="'.Yii::app()->session['protocol'].'198.101.242.113/jcuervodev/index.php/App/detalle/'.$value["id"].'" class="js-lightbox">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a></div></div>';        
+                 echo '<div class="itemThumbnail"><div><a data-fancybox-type="iframe" href="'.Yii::app()->session['protocol'].'memegenerator.in2teck.com/index.php/App/detalle/'.$value["id"].'" class="js-lightbox">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a></div></div>';        
                   ?>
                 <? if($count==9){  ?>
                   </div>

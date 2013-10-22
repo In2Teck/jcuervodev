@@ -7,10 +7,10 @@
 
             for($i=0;$i<$cantidad_resultados;$i++){
             if($value['idFb']==Yii::app()->session['id_facebook']){
-                 echo '<div class="itemMeme"><a data-fancybox-type="iframe" href="http://198.101.242.113/jcuervodev/index.php/App/detalle/'.$value["idFb"].'"  class="js-lightbox ">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a><div><a href="http://198.101.242.113/jcuervodev/index.php/App/Profile/'.$value['idFb'].'">'.CHtml::image('https://graph.facebook.com/'.$value['idFb'].'/picture').'</a></div>
+                 echo '<div class="itemMeme"><a data-fancybox-type="iframe" href="http://memegenerator.in2teck.com/index.php/App/detalle/'.$value["idFb"].'"  class="js-lightbox ">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a><div><a href="http://memegenerator.in2teck.com/index.php/App/Profile/'.$value['idFb'].'">'.CHtml::image('https://graph.facebook.com/'.$value['idFb'].'/picture').'</a></div>
                  </div>';
              }else{
-                echo '<div class="itemMeme"><a data-fancybox-type="iframe" href="http://198.101.242.113/jcuervodev/index.php/App/detalle/'.$value["idFb"].'"  class="js-lightbox cdetail">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a><div><a href="http://198.101.242.113/jcuervodev/index.php/App/Profile/'.$value['idFb'].'">'.CHtml::image('https://graph.facebook.com/'.$value['idFb'].'/picture').'</a></div>
+                echo '<div class="itemMeme"><a data-fancybox-type="iframe" href="http://memegenerator.in2teck.com/index.php/App/detalle/'.$value["idFb"].'"  class="js-lightbox cdetail">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a><div><a href="http://memegenerator.in2teck.com/index.php/App/Profile/'.$value['idFb'].'">'.CHtml::image('https://graph.facebook.com/'.$value['idFb'].'/picture').'</a></div>
                  </div>';
              }
             }  

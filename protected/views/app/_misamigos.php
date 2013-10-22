@@ -24,7 +24,7 @@
 
         <a href="<?php echo CController::CreateUrl('Comics/create'); ?>">Crea un meme nuevo</a>
     
-        <div class="tabs"><a  href="<? echo Yii::app()->session['protocol']; ?>198.101.242.113/jcuervodev/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>" class="mismemesmenu" >Mis Memes</a><a  id="misamigos"  class="selectedTab menu" href="">De mis amigos</a><a id="categoria" class="menu" href="">Por categoría</a></div>
+        <div class="tabs"><a  href="<? echo Yii::app()->session['protocol']; ?>memegenerator.in2teck.com/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>" class="mismemesmenu" >Mis Memes</a><a  id="misamigos"  class="selectedTab menu" href="">De mis amigos</a><a id="categoria" class="menu" href="">Por categoría</a></div>
         
 
    <? 
@@ -50,7 +50,7 @@
                   <?  }  ?>
                   
                   <? if($count<10)
-                      echo '<div class="itemThumbnail"><div><a data-fancybox-type="iframe" href="'.Yii::app()->session['protocol'].'198.101.242.113/jcuervodev/index.php/App/detalle/'.$value["id"].'"  id="'.$value["id"].'"  class="js-lightbox cdetail">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a><div><a href="'.Yii::app()->session['protocol'].'198.101.242.113/jcuervodev/index.php/App/Profile/'.$value['id_facebook'].'">'.CHtml::image('https://graph.facebook.com/'.$value['id_facebook'].'/picture').'</a></div></div></div>'; 
+                      echo '<div class="itemThumbnail"><div><a data-fancybox-type="iframe" href="'.Yii::app()->session['protocol'].'memegenerator.in2teck.com/index.php/App/detalle/'.$value["id"].'"  id="'.$value["id"].'"  class="js-lightbox cdetail">'.CHtml::image(Yii::app()->request->baseUrl."/Comics/".$value['imagen']).'</a><div><a href="'.Yii::app()->session['protocol'].'memegenerator.in2teck.com/index.php/App/Profile/'.$value['id_facebook'].'">'.CHtml::image('https://graph.facebook.com/'.$value['id_facebook'].'/picture').'</a></div></div></div>'; 
                   ?>
                 <? if($count==9){  ?>
                   </div>

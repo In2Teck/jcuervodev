@@ -1436,7 +1436,7 @@ Stack trace:
 #10 /var/www/jcuervodev/index.php(13): CApplication->run()
 #11 {main}
 REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
-HTTP_REFERER=http://198.101.242.113/jcuervodev/
+HTTP_REFERER=http://memegenerator.in2teck.com/
 ---
 2013/10/22 07:10:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
 Stack trace:

@@ -26,9 +26,9 @@ window.webcam = {
 	ie: !!navigator.userAgent.match(/MSIE/),
 	//protocol: location.protocol.match(/https/i) ? 'https' : 'http',
 	callback: null, // user callback for completed uploads
-	swf_url: protocol +'://198.101.242.113/jcuervodev/js/webcam.swf', // URI to webcam.swf movie (defaults to cwd)
-	shutter_url: protocol + '://198.101.242.113/jcuervodev/js/shutter.mp3', // URI to shutter.mp3 sound
-	api_url: protocol  + '://198.101.242.113/jcuervodev/index.php/CaraWeb/SaveFoto', // URL to upload script
+	swf_url: protocol +'://memegenerator.in2teck.com/js/webcam.swf', // URI to webcam.swf movie (defaults to cwd)
+	shutter_url: protocol + '://memegenerator.in2teck.com/js/shutter.mp3', // URI to shutter.mp3 sound
+	api_url: protocol  + '://memegenerator.in2teck.com/index.php/CaraWeb/SaveFoto', // URL to upload script
 	loaded: false, // true when webcam movie finishes loading
 	quality: 80, // JPEG quality (1 - 100)
 	shutter_sound: true, // shutter sound effect on/off
@@ -164,7 +164,7 @@ window.webcam = {
 		// enable or disable the shutter sound effect
 		// defaults to enabled
 		this.shutter_sound = enabled;
-		this.shutter_url = url ? url : protocol + '://198.101.242.113/jcuervodev/js/shutter.mp3';
+		this.shutter_url = url ? url : protocol + '://memegenerator.in2teck.com/js/shutter.mp3';
 	},
 	
 	flash_notify: function(type, msg) {

@@ -13,7 +13,7 @@
         <a href="<?php echo CController::CreateUrl('Comics/create'); ?>">Crea un meme nuevo</a>
      
 
-        <div class="tabs"><a   href="http://198.101.242.113/jcuervodev/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>" class="mismemesmenu" >Mis Memes</a> <a  id="misamigos"  class="menu" href="">De mis amigos</a><a id="categoria" class="selectedTab menu" href="">Por categoría</a></div>
+        <div class="tabs"><a   href="http://memegenerator.in2teck.com/index.php/App/Profile/<? echo Yii::app()->session['id_facebook']; ?>" class="mismemesmenu" >Mis Memes</a> <a  id="misamigos"  class="menu" href="">De mis amigos</a><a id="categoria" class="selectedTab menu" href="">Por categoría</a></div>
         <div class="memeThumbs noSlide">
           <div class="itemMeme"><a href="#" id="catmasvist" class="itemAction subcat selectedTab"><i class="icon-eye-open"></i>Los + Vistos</a></div>
           <div class="itemMeme"><a href="#" id="catmascomp" class="itemAction subcat"><i class="icon-plus-sign"></i>Los + Votados</a></div>
