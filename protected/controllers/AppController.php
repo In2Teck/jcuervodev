@@ -163,14 +163,10 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
     if($user){
        
-         echo $user_profile['email'];
                 $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
         
          
                if(count($response)==0){
-        
-              echo "entro";
-
       
       /*
                         $user_albums = Yii::app()->facebook->api('/me/albums?access_token=' . $accesToken);
@@ -235,13 +231,15 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
         }else{  
                       
 
-                      echo "hola";  /*
+                    
                                
                                   Yii::app()->session['usuario_id']=$response->id;
                                   Yii::app()->session['id_facebook']=$response->id_facebook;
                                   Yii::app()->session['access_token']=$accesToken = Yii::app()->facebook->getAccessToken();
                                   Yii::app()->session['id_album']=$response->id_album;
                                   
+                               
+/*
                                   if(isset($data)){
 
 
@@ -279,7 +277,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                      $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
                                   }
 
-                                  */
+*/
+                                  
           
             
         }
