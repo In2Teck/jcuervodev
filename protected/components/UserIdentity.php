@@ -22,6 +22,8 @@ class UserIdentity extends CUserIdentity
 
 	public function authenticate()
 	{
+
+		$this->setState('title', $record->title);
 	    $this->errorCode=self::ERROR_NONE;
 		return $this->errorCode;
 	
