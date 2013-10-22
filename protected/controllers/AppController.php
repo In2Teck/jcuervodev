@@ -260,8 +260,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                         if($m->login()){}
                                       */
                                       $model=new LoginForm;
-                                      $model->username="usuario";
-                                      $model->password="usuario";
+                                      $model->username="admin";
+                                      $model->password="admin";
                                       if($model->validate() && $model->login()){
                                         //echo "entro";
                                         
