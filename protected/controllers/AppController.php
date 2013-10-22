@@ -16,7 +16,7 @@ class AppController extends Controller
   {
     return array(
       array('allow',  // allow all users to perform 'index' and 'view' actions
-        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index','profile'),
+        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index'),
         'users'=>array('*'),
       ),
       array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -261,9 +261,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
                                           
                                   }
-
-
-                                
+                            
                                   
                                   if($response->isFan){
                                     
@@ -275,10 +273,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                         $this->redirect(array('App/Profile/'.$user_profile['id']));
                                       
                                       }
-                                     
-                                    
                                   }else{
-                                 //    $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
+                                       $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
                                    }      
                                 
                                           
