@@ -264,7 +264,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                       $model->password="admin";
                                       if($model->validate() && $model->login()){
                                       
-                                         //$this->redirect(array('App/Profile/'.$user_profile['id']));
+                                         $this->redirect(array('App/Profile/'.$user_profile['id']));
                                       }else{
 
                                         echo "not log";
