@@ -7,8 +7,6 @@
  */
 class UserIdentity extends CUserIdentity
 {
-	private $_id;
-	
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -17,23 +15,12 @@ class UserIdentity extends CUserIdentity
 	 * against some persistent user identity storage (e.g. database).
 	 * @return boolean whether authentication succeeds.
 	 */
-	public function authenticate() {		
 
-	   $this->_id=$user->id;
-	   $this->setState('roles','Usuario');
-	   $this->errorCode=self::ERROR_NONE;
-				
+
+	public function authenticate()
+	{
+	    $this->errorCode=self::ERROR_NONE;
+		return !$this->errorCode;
 	
-
-
-		return !$this->errorCode; 
-	}
-
-
-
-	public function getId() {
-	      return $this->_id;
 	}
 }
-
-
