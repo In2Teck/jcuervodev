@@ -313,8 +313,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
   public function actionProfile($id)
   {
    
-  echo "entro";
-   /*
+   
     if($id==null) 
       throw new CHttpException(404,'The requested page does not exist.');
       
@@ -331,13 +330,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
     header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
  
-    $facebook = new facebook(array(
-      'appId'  => '342733185828640',
-      'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
-    ));
    
     try {
-      $friends= $facebook->api(array('method' => 'friends.getAppUsers'));
+      $friends= Yii::app()->facebook->api(array('method' => 'friends.getAppUsers'));
       if(count($friends)!=null){
         $model_amigos=new Amigos;
         $model_amigos->insertAmigosApp($friends);
@@ -350,7 +345,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
     }
 
-    */
+  
       
   }
 
