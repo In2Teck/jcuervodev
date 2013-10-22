@@ -28,7 +28,7 @@ class AppController extends Controller
         'users'=>array('admin'),
       ),
       array('deny',  // deny all users
-        //'users'=>array('*'),
+        'users'=>array('*'),
       ),
     );
   }
