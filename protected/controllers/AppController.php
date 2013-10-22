@@ -271,7 +271,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                     $m=new Login;
                                     $m->username=$response->id;
                                      if($m->login()){
-                                        $this->redirect(array('App/Profile/'.$user_profile['id']));
+                                      echo "camibos";
+                                        //$this->redirect(array('App/Profile/'.$user_profile['id']));
                                       }
                                      
                                     
