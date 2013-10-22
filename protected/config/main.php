@@ -39,6 +39,8 @@ return array(
 			'loginUrl'=>array('app/login'),
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			'class'=>'WebUser',
+
 		),
 
 		'facebook'=>array(
