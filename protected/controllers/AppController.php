@@ -161,7 +161,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     
     } 
 
-  
+  /* 
 
     if($user){
        
@@ -173,7 +173,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
         
               echo "entro";
 
-      /* 
+      
                         $user_albums = Yii::app()->facebook->api('/me/albums?access_token=' . $accesToken);
                         print_r($user_albums);
                       
@@ -229,7 +229,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
                          }
 
-*/
+
                          
            
 
@@ -290,7 +290,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
        $this->render('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
-
+*/
 
     $this->render("//app/login");
   
