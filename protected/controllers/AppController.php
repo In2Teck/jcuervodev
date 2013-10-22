@@ -286,7 +286,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
 
 
-    $this->render("//app/login");
+    //$this->render("//app/login");
   
 
   }
