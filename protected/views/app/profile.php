@@ -5,9 +5,8 @@ function referrerIsFacebookApp() {
   if (document.URL) {
     if (isInIFrame) {
       return document.URL.indexOf("apps.facebook.com") != -1;
-    } else {
-      return document.URL.indexOf("in2teck.memegenerator.com") != -1;
-
+    } else {      
+          return document.URL.indexOf("memegenerator.in2teck.com") != -1;
     }
   }
   return false;
