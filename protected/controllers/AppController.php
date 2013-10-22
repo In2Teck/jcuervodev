@@ -98,6 +98,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
   public function actionLogin(){
 
+    $data=array();
    if(isset($_SERVER['PATH_INFO'])){
       $idFb = split('/', $_SERVER['PATH_INFO']); if(count($idFb)==4){ if($idFb[2]=='Profile'){ Yii::app()->session['nidFb']=$idFb[3]; } } 
     }
