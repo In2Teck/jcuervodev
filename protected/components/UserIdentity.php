@@ -5,6 +5,8 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
+$session=new CHttpSession;
+ $session->open();
 class UserIdentity extends CUserIdentity
 {
 	/**
@@ -17,10 +19,12 @@ class UserIdentity extends CUserIdentity
 	 */
 
 
+
 	public function authenticate()
 	{
 	    $this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
+		return $this->errorCode;
 	
 	}
+	
 }
