@@ -36,8 +36,7 @@ if (referrerIsFacebookApp()) {
          <?php 
 
             if(count($comics)>3){
-                    //print_r($comics);
-
+              echo Yii::app()->user->id;
               foreach ($comics as $key => $value) { ?>
                 <div class="itemThumbnail"><div><a href="#"><img src="<?php echo Yii::app()->request->baseUrl."/Comics/".$value['imagen']; ?>"></a></div></div>
             <?php
