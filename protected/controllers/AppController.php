@@ -315,6 +315,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
   public function actionProfile($id)
   {
+   
+  echo "entro";
+   /*
     if($id==null) 
       throw new CHttpException(404,'The requested page does not exist.');
       
@@ -349,6 +352,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
        $this->render('profile',array('json'=>$json,'comics'=>$comics, 'logoutUrl'=>$logoutUrl));
 
     }
+
+    */
       
   }
 
