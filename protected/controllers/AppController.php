@@ -131,13 +131,22 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
 
 
-    $user = Yii::app()->facebook->getUser(); 
+$facebook = new Facebook(array(
+    'appId'  => '342733185828640',
+    'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
+    ));
+
+// Get User ID
+$user = $facebook->getUser();
+
+
+    //$user = Yii::app()->facebook->getUser(); 
     $loginUrl = Yii::app()->facebook->getLoginUrl();
 
          if($user){
 
-          $accesToken = Yii::app()->facebook->getAccessToken();
-          $user_profile = Yii::app()->facebook->api('/me?access_token=' . $accesToken);
+          $accesToken = $facebook->getAccessToken();
+          $user_profile = $facebook->api('/me?access_token=' . $accesToken);
           //$results = Yii::app()->facebook->api('/me'); 
           // print_r($user_profile);
          }else{
