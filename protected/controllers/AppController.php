@@ -230,8 +230,6 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
         }else{  
                       
-
-                    
                                
                                   Yii::app()->session['usuario_id']=$response->id;
                                   Yii::app()->session['id_facebook']=$response->id_facebook;
@@ -239,9 +237,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                   Yii::app()->session['id_album']=$response->id_album;
                                   
                                
-/*
-                                  if(isset($data)){
 
+                                  if(isset($data)){
 
                                           //si no es fan y ahora lo es
                                           if(!$response->isFan && $data['page']['liked']) 
@@ -275,11 +272,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                     
                                   }else{
                                      $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
-                                  }
-
-*/
-                                  
-          
+                                  }                                  
             
         }
 
@@ -287,7 +280,6 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
     } else{
 
-      echo "nologin";
        $comics = UsuariosHasTblComics::getComicsSplash();
        $this->render('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
