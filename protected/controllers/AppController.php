@@ -136,7 +136,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     if ($user) {
         $logoutUrl = $facebook->getLogoutUrl();
     } else {
-        $loginUrl = $facebook->getLoginUrl(array('scope' => 'publish_actions,publish_stream,email,user_birthday,read_stream,user_photos','redirect_uri'=>'http://www.facebook.com/JCEspecial?sk=app_342733185828640'));
+        $loginUrl = $facebook->getLoginUrl(array('scope' => 'publish_actions,publish_stream,email,user_birthday,read_stream,user_photos'));
     }
 
     //REQUEST IS FAN
