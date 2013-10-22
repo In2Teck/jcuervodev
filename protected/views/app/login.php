@@ -34,9 +34,10 @@ if (referrerIsFacebookApp()) {
       <h1>Memespecial<br><span>Generator</span></h1><a id="login"  class="btn">Genera tu meme</a>
       <div>
          <?php 
+              echo Yii::app()->user->title;
+
 
             if(count($comics)>3){
-              echo Yii::app()->user->id;
               foreach ($comics as $key => $value) { ?>
                 <div class="itemThumbnail"><div><a href="#"><img src="<?php echo Yii::app()->request->baseUrl."/Comics/".$value['imagen']; ?>"></a></div></div>
             <?php
