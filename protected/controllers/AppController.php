@@ -98,55 +98,46 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
   public function actionLogin(){
 
-    
-    if(isset($_SERVER['PATH_INFO'])){
-      $idFb = explode('/', $_SERVER['PATH_INFO']); if(count($idFb)==4){ if($idFb[2]=='Profile'){ Yii::app()->session['nidFb']=$idFb[3]; } } 
+   if(isset($_SERVER['PATH_INFO'])){
+      $idFb = split('/', $_SERVER['PATH_INFO']); if(count($idFb)==4){ if($idFb[2]=='Profile'){ Yii::app()->session['nidFb']=$idFb[3]; } } 
     }
     $protocol="http://"; if(isset($_SERVER['HTTPS'])){ $protocol="https://"; }else{ $protocol="http://"; }
     Yii::app()->session['protocol']=$protocol;
 
+    $loginUrl=null;
     //if(isset($_REQUEST['admin']) && $_REQUEST['admin']==="admin" ) {
       //$this->redirect(array('App/admin'));
     //}
       
     //header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
-   //header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+   header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+
+
+   $facebook = new facebook(array(
+    'appId'  => '342733185828640',
+    'secret' => 'f645963f59ed7ee25410567dbfd0b73f',
+    ));
    
-  
-//$cookie = preg_replace("/^\"|\"$/i", "", $_COOKIE['fbsr_'.'342733185828640']);
-
-//parse_str($cookie, $data);
-
-//print_r($data);
-
-
-
-// Startup the Facebook object
-
-// Say we are using the token from the JS
-//$facebook->setAccessToken($_COOKIE['fbsr_'.'342733185828640']);
-
-// It should work now
-  
-
-
-
-    $user = Yii::app()->facebook->getUser(); 
-    $loginUrl = Yii::app()->facebook->getLoginUrl();
-    $accesToken="";
-         if($user){
-          $user_profile = Yii::app()->facebook->api('/me');
-         }else{
-
-         }
-
-
+    $user =$facebook->getUser();
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
     $album_id = 'blank';
 
-    
+    if ($user) {
+       try {
+          $user_profile =  $facebook->api('/me');
+        } catch (FacebookApiException $e) {
+           error_log($e);
+           $user = null;
+         }
+     }
 
+
+    if ($user) {
+        $logoutUrl = $facebook->getLogoutUrl();
+    } else {
+        $loginUrl = $facebook->getLoginUrl(array('scope' => 'publish_actions,publish_stream,email,user_birthday,read_stream,user_photos','redirect_uri'=>'http://www.facebook.com/JCEspecial?sk=app_342733185828640'));
+    }
 
     //REQUEST IS FAN
     if ($_REQUEST && isset($_REQUEST['signed_request'])) {
@@ -155,139 +146,111 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
       $data = $this->parse_signed_request($signed_request);
     
     } 
+    
+    //Array ( [algorithm] => HMAC-SHA256 [expires] => 1367028000 [issued_at] => 1367022760 [oauth_token] => BAAE3tsnLRyABAMvDEnYZCpAZBbZAO2TwDS6Na5pAgBSCm5fZB6J0M7LZAxERlAqCCm52biNXkA8K6u73PPrXzMfv9tMNZAOvZAY7hfCCoBF7B0PVtlUWnIkBpnvkZCiFZADwTrjRXldKQo77SqwZCfzkD2oAzq3V5yHodkPndCpfqwv5FWowrmHHbywTlBX2HvqTQbdG2yMiHSBnuPLajhwXkhuLcR7GOIQw2i9cCBF6bBqgZDZD [page] => Array ( [id] => 573988472620627 [liked] => 1 [admin] => ) [user] => Array ( [country] => mx [locale] => es_LA [age] => Array ( [min] => 21 ) ) [user_id] => 100001421156741 )
 
     if($user){
-       
-                $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
+        $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
+
+        if(count($response)==0){
+          $user_albums = $facebook->api("/me/albums");
+
+        if ($user_albums) {
+             foreach ($user_albums['data'] as $key => $album) {
+              if ($album['name'] == $album_name) {
+                $album_id = $album['id'];
+                break;
+              }
+              else {
+                $album_id = 'blank';
+              }
+            }
+        }
+ 
+        if ($album_id == 'blank') {
+              $graph_url = "https://graph.facebook.com/me/albums?" . "access_token=". $user; 
+              $album_data = array(
+                  'name' => $album_name,
+                  'message' => $album_description,
+                  );
+              $new_album = $facebook->api("me/albums", 'post', $album_data);
+              $album_id = $new_album['id'];
+          }
+
+          $response = new Usuarios;
+          $response->correo=$user_profile['email'];
+          $response->nombre=$user_profile['name'];
+          $response->id_facebook=$user_profile['id'];
+          $response->sexo=$user_profile['gender'];
+          $response->id_album=$album_id;
+          
+          
+          if($data['page']['liked']) 
+            { 
+               $response->isFan = true;
+            }else{
+               $response->isFan = false;
+            }
+
+          if($response->save(false)){
+            
+          }
         
-         
-               if(count($response)==0){
-      
-      
-                        $user_albums = Yii::app()->facebook->api('/me/albums?access_token=' . $accesToken);
-                        print_r($user_albums);
-                      
+           if($response->isFan){
+            Yii::app()->session['usuario_id']=$response->id;
+            $this->redirect(array('App/Profile/'.$user_profile['id']));
 
-                      if ($user_albums) {
-                           foreach ($user_albums['data'] as $key => $album) {
-                            if ($album['name'] == $album_name) {
-                              $album_id = $album['id'];
-                              break;
-                            }
-                            else {
-                              $album_id = 'blank';
-                            }
-                          }
-                      }
-               
-                      if ($album_id == 'blank') {
-                            $graph_url = "https://graph.facebook.com/me/albums?" . "access_token=". $user; 
-                            $album_data = array(
-                                'name' => $album_name,
-                                'message' => $album_description,
-                                );
-                            $new_album = Yii::app()->facebook->api("me/albums", 'post', $album_data);
-                            $album_id = $new_album['id'];
-                        }
+           }else{
+            $comics = UsuariosHasTblComics::getComicsSplash();
+            $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
 
-                        $response = new Usuarios;
-                        $response->correo=$user_profile['email'];
-                        $response->nombre=$user_profile['name'];
-                        $response->id_facebook=$user_profile['id'];
-                        $response->sexo=$user_profile['gender'];
-                        $response->id_album=$album_id;
-                        
-                        
-                        if($data['page']['liked']) 
-                          { 
-                             $response->isFan = true;
-                          }else{
-                             $response->isFan = false;
-                          }
-
-                        if($response->save(false)){
-                          
-                        }
-                      
-                         if($response->isFan){
-                          Yii::app()->session['usuario_id']=$response->id;
-                          $this->redirect(array('App/Profile/'.$user_profile['id']));
-
-                         }else{
-                          $comics = UsuariosHasTblComics::getComicsSplash();
-                          $this->render('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
-
-                         }           
+           }
 
         }else{  
-                      
-                               
-                                  Yii::app()->session['usuario_id']=$response->id;
-                                  Yii::app()->session['id_facebook']=$response->id_facebook;
-                                  Yii::app()->session['access_token']=$accesToken = Yii::app()->facebook->getAccessToken();
-                                  Yii::app()->session['id_album']=$response->id_album;
-                    
-                                  if(isset($data)){
-
-                                         //si no es fan y ahora lo es
-                                          if(!$response->isFan && $data['page']['liked']) 
-                                          {
-                                            $act_user = ActividadUsuario::model()->find(array('condition'=>'tbl_usuarios_id=:uid','params'=>array(':uid'=>Yii::app()->session['usuario_id'])));
-                                            $response->isFan = true;
-                                            if(count($act_user) == 0){
-                                              $act_user = new ActividadUsuario;
-                                              $act_user->tbl_usuarios_id = Yii::app()->session['usuario_id'];
-                                              $act_user->tbl_actividad_actividad_id = 1;
-                                              $act_user->save(false);
-                                            } 
-                                            $response->save(false);
-                                          }
-
-                                          //si ya no quiere serlo
-                                          if(!$data['page']['liked']) 
-                                          {
-                                            $response->isFan = false;
-                                            $response->save(false);
-                                          }
-
-                                          
-                                  }
-                                   
-                                  if($response->isFan){
-                                     /*
-                                        $m=new Login;
-                                        $m->username=$response->id;
-                                        if($m->login()){}
-                                      */
-                                      $model=new LoginForm;
-                                      $model->username="admin";
-                                      $model->password="admin";
-                                      if($model->validate() && $model->login()){
-                                      
-                                         $this->redirect(array('App/Profile/'.$user_profile['id']));
-                                      }else{
-
-                                        echo "not log";
-                                      }
+          
+            Yii::app()->session['usuario_id']=$response->id;
+            Yii::app()->session['id_facebook']=$response->id_facebook;
+            Yii::app()->session['access_token']=$facebook->getAccessToken();
+            Yii::app()->session['id_album']=$response->id_album;
+            if(isset($data)){
 
 
+              //si no es fan y ahora lo es
+              if(!$response->isFan && $data['page']['liked']) 
+              {
+                $act_user = ActividadUsuario::model()->find(array('condition'=>'tbl_usuarios_id=:uid','params'=>array(':uid'=>Yii::app()->session['usuario_id'])));
+                $response->isFan = true;
+                if(count($act_user) == 0){
+                  $act_user = new ActividadUsuario;
+                  $act_user->tbl_usuarios_id = Yii::app()->session['usuario_id'];
+                  $act_user->tbl_actividad_actividad_id = 1;
+                  $act_user->save(false);
+                } 
+                $response->save(false);
+              }
 
-                                  }else{
-                                     //  $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
-                                   }                                           
+              //si ya no quiere serlo
+              if(!$data['page']['liked']) 
+              {
+                $response->isFan = false;
+                $response->save(false);
+              }
+            }
+            
+            if($response->isFan){
+              $m=new Login;
+              $m->username=$response->id;
+              $m->login();
+              $this->redirect(array('App/Profile/'.$user_profile['id']));
+            }else{
+               $this->renderPartial('//app/nofan',array('loginUrl'=>$loginUrl));
+            }
             
         }
-
-      
-
-    } else{
-
+    }else{
        $comics = UsuariosHasTblComics::getComicsSplash();
-      
-       echo ".";
-      // $this->render('//app/login',array('loginUrl'=>'','comics'=>$comics));
-    }  
-
+       $this->renderPartial('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
+    }
 
   }
 
