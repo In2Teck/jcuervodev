@@ -34,7 +34,6 @@ if (referrerIsFacebookApp()) {
       <h1>Memespecial<br><span>Generator</span></h1><a id="login"  class="btn">Genera tu meme</a>
       <div>
          <?php 
-              echo Yii::app()->user->title;
 
 
             if(count($comics)>3){
