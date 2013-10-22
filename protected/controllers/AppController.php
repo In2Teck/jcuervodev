@@ -138,9 +138,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
          if($user){
 
           $accesToken = Yii::app()->facebook->getAccessToken();
-         // $user_profile = Yii::app()->facebook->api('/me?access_token=' . $accesToken);
-
-          echo "entro";
+          $user_profile = Yii::app()->facebook->api('/me?access_token=' . $accesToken);
           //$results = Yii::app()->facebook->api('/me'); 
          }else{
                    //echo '<a href="'.$loginUrl.'" >cambios </a> ';
