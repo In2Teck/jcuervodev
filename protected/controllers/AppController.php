@@ -238,10 +238,15 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
             }
             
             if($response->isFan){
+              
+              
               $m=new Login;
               $m->username=$response->id;
               $m->login();
-              $this->redirect(array('App/Profile/'.$user_profile['id']));
+
+              
+              //$this->redirect(array('App/Profile/'.$user_profile['id']));
+
             }else{
                $this->renderPartial('//app/nofan',array('loginUrl'=>$loginUrl));
             }
