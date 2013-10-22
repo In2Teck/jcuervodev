@@ -186,7 +186,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
           $response->id_album=$album_id;
           
           
-          if($data['page']['liked']) 
+          
+          if(isset($data['page']['liked'])) 
             { 
                $response->isFan = true;
             }else{
