@@ -152,7 +152,7 @@ $cs->registerScriptFile($baseUrl.'/js/slides.min.jquery.js');
 //Yii::app()->request->baseUrl
 Yii::app()->getClientScript()->registerScript('registrar', '
   var avatar = '.CJSON::encode($json['avatar']).';
-  var BaseUrl = "/php2/jcuervo"; 
+  var BaseUrl = "'.Yii::app()->request->baseUrl.'"; 
   var accesorios=[]; var piezas=[];
   var angle, cara,tmp, cara_web, cuerpo, ojos, boca, currentLayer, currentSelected, layerPersonaje, listenerStat, newangle, rotateLeft, rotateRight, saveToImage, sendBack, sendFront, stagePersonaje, removeImage, scale, startScale, trans,imageLogo;
   caraWebInsert=true; currentSelected = null; scale = 1; scaleUpFactor= 1.05; trans = null;
