@@ -1398,3 +1398,266 @@ Stack trace:
 #24 {main}
 REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
 ---
+2013/10/22 07:01:08 [error] [exception.Exception] exception 'Exception' with message 'Facebook needs the CURL PHP extension.' in /var/www/jcuervodev/protected/facebook/base_facebook.php:19
+Stack trace:
+#0 /var/www/jcuervodev/protected/facebook/facebook.php(18): require_once()
+#1 /var/www/yii/framework/YiiBase.php(423): include('/var/www/jcuerv...')
+#2 [internal function]: YiiBase::autoload('facebook')
+#3 /var/www/jcuervodev/protected/controllers/AppController.php(116): spl_autoload_call('facebook')
+#4 /var/www/yii/framework/web/actions/CInlineAction.php(50): AppController->actionLogin()
+#5 /var/www/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /var/www/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 /var/www/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#8 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#12 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('login')
+#14 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('app/login')
+#15 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /var/www/jcuervodev/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/jcuervodev/
+---
+2013/10/22 07:10:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+HTTP_REFERER=http://198.101.242.113/jcuervodev/
+---
+2013/10/22 07:10:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:10:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:11:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:11:14 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:11:19 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:11:23 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:11:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:12:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:14:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:14:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:15:06 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:15:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "site/logout"' in /var/www/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/logout')
+#1 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/jcuervodev/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jcuervodev/index.php/site/logout
+---
+2013/10/22 07:15:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "site/logout"' in /var/www/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('site/logout')
+#1 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/jcuervodev/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jcuervodev/index.php/site/logout
+---
+2013/10/22 07:15:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
+2013/10/22 07:16:01 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in /var/www/yii/framework/web/auth/CAccessControlFilter.php:170
+Stack trace:
+#0 /var/www/yii/framework/web/auth/CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 /var/www/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /var/www/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /var/www/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /var/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/yii/framework/web/CWebApplication.php(283): CController->run('Profile')
+#8 /var/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('App/Profile')
+#9 /var/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /var/www/jcuervodev/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
+---
