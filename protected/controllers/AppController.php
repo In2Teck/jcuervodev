@@ -21,7 +21,7 @@ class AppController extends Controller
       ),
       array('allow', // allow authenticated user to perform 'create' and 'update' actions
         'actions'=>array('create','update','create','profile','UpdatePieza','CrearAvatar','UpdateTipoPieza','MisMemes','MisAmigos','Categoria','Dest','Catmasvist','Catmascomp','Catjoscuer','Catmascome','Detalle','F'),
-        'users'=>array('usuario'),
+        'users'=>array('@'),
       ),
       array('allow', // allow admin user to perform 'admin' and 'delete' actions
         'actions'=>array('admin','delete','index'),
@@ -264,7 +264,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                       $model->password="usuario";
                                       if($model->validate() && $model->login()){
                                         //echo "entro";
-                                        $this->redirect(array('App/Profile/'.$user_profile['id']));
+                                        
+                                          print_r(Yii::app()->user);
+                                         //$this->redirect(array('App/Profile/'.$user_profile['id']));
                                       }else{
 
                                         echo "not log";
