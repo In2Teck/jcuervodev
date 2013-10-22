@@ -17,9 +17,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'application.ext.*'
-
-		//'application.facebook.*',
+		'application.ext.*',
+		'application.facebook.*',
 	),
 
 	'modules'=>array(
