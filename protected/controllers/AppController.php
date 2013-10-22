@@ -162,10 +162,10 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     } 
 
   
-/*
-    if($user){
 
-       
+    if($user){
+      echo "entro";
+       /*
 
                 $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
         
@@ -228,6 +228,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
                          }
 
+*/
                          
            
 
@@ -288,7 +289,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
        $this->render('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
-*/
+
 
     $this->render("//app/login");
   
