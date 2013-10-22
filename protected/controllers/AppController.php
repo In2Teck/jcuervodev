@@ -164,15 +164,16 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
   
 
     if($user){
-      echo "entro";
-       /*
+       
 
                 $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
         
          
                if(count($response)==0){
         
-      
+              echo "entro";
+
+      /* 
                         $user_albums = Yii::app()->facebook->api('/me/albums?access_token=' . $accesToken);
                         print_r($user_albums);
                       
@@ -282,7 +283,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
       
 
-    }else{
+    } else{
 
       echo "nologin";
        $comics = UsuariosHasTblComics::getComicsSplash();
