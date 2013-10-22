@@ -1398,6 +1398,7 @@ Stack trace:
 #24 {main}
 REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
 ---
+<<<<<<< HEAD
 2013/10/22 07:01:08 [error] [exception.Exception] exception 'Exception' with message 'Facebook needs the CURL PHP extension.' in /var/www/jcuervodev/protected/facebook/base_facebook.php:19
 Stack trace:
 #0 /var/www/jcuervodev/protected/facebook/facebook.php(18): require_once()
@@ -1661,3 +1662,39 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/jcuervodev/index.php/App/Profile/100004850712781
 ---
+=======
+2013/10/22 06:53:57 [error] [php] Function split() is deprecated (/Applications/XAMPP/xamppfiles/htdocs/jcuervodev/protected/controllers/AppController.php:102)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CFilterChain.php(134): AppController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CInlineFilter.php(59): AppController->filterAccessControl()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(292): CFilterChain->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(266): AppController->runActionWithFilters()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(283): AppController->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Applications/XAMPP/xamppfiles/htdocs/jcuervodev/index.php(13): CWebApplication->run()
+REQUEST_URI=/jcuervodev/index.php/app/login
+in /Applications/XAMPP/xamppfiles/htdocs/jcuervodev/protected/controllers/AppController.php (102)
+in /Applications/XAMPP/xamppfiles/htdocs/jcuervodev/index.php (13)
+2013/10/22 06:54:03 [error] [php] Function split() is deprecated (/Applications/XAMPP/xamppfiles/htdocs/jcuervodev/protected/controllers/AppController.php:102)
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#1 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CFilterChain.php(134): AppController->runAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#3 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#4 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CInlineFilter.php(59): AppController->filterAccessControl()
+#5 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#6 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(292): CFilterChain->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CController.php(266): AppController->runActionWithFilters()
+#8 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(283): AppController->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/web/CWebApplication.php(142): CWebApplication->runController()
+#10 /Applications/XAMPP/xamppfiles/htdocs/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /Applications/XAMPP/xamppfiles/htdocs/jcuervodev/index.php(13): CWebApplication->run()
+REQUEST_URI=/jcuervodev/index.php/app/login
+in /Applications/XAMPP/xamppfiles/htdocs/jcuervodev/protected/controllers/AppController.php (102)
+in /Applications/XAMPP/xamppfiles/htdocs/jcuervodev/index.php (13)
+>>>>>>> 378ee0055e4ffe8c29e8e47f01d4875e52d6184a
