@@ -16,7 +16,7 @@ class AppController extends Controller
   {
     return array(
       array('allow',  // allow all users to perform 'index' and 'view' actions
-        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index','profile'),
+        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index'),
         'users'=>array('*'),
       ),
       array('allow', // allow authenticated user to perform 'create' and 'update' actions
