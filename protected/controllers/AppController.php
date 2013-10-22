@@ -262,16 +262,16 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                           
                                   }
 
-                                  /*
+
+                                    echo $response->isFan;
+                                /*
                                   
-
-
                                   if($response->isFan){
                                     
                                      
                                     $m=new Login;
                                     $m->username=$response->id;
-                                    if($m->login()){
+                                     if($m->login()){
                                         $this->redirect(array('App/Profile/'.$user_profile['id']));
                                    }
                                     
