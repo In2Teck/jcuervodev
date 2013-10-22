@@ -146,7 +146,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
          }
 
-
+/*
 
     $album_name = 'MIS MEMES ESPECIAL';
     $album_description = '';
@@ -277,7 +277,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
        $comics = UsuariosHasTblComics::getComicsSplash();
        $this->render('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
+*/
 
+    $this->render("//app/login");
   
 
   }
