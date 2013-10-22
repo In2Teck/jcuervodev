@@ -52,8 +52,8 @@
         </div>
    </div>
 
-      <div id="pic"><div>
-        <? echo CHtml::image(Yii::app()->request->baseUrl."/Comics/".$json['comic']['comic']['imagen']); ?></div>
+      <div id="pic">
+        <div><? echo CHtml::image(Yii::app()->request->baseUrl."/Comics/".$json['comic']['comic']['imagen']); ?></div>
           <? if($json['comic']['comic']['eliminar']){ ?>
              <a href="#" class="btn delc" id="<? echo $json['comic']['comic']['id']; ?>"><i class="icon-trash"></i> Eliminar Meme</a>
          <? } ?>     

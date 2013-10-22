@@ -157,6 +157,8 @@ $(".share").live('click',function(){
         $('#NoCompartido').html(data);
       }
     });
+
+    alert(window.protocol+"memegenerator.in2teck.com"+img);
     var obj = {
       method: 'feed',
       redirect_uri: window.protocol+"memegenerator.in2teck.com/index.php",
