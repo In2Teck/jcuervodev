@@ -16,7 +16,7 @@ class AppController extends Controller
   {
     return array(
       array('allow',  // allow all users to perform 'index' and 'view' actions
-        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index','profile'),
+        'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index'),
         'users'=>array('*'),
       ),
       array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -134,14 +134,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     $user = Yii::app()->facebook->getUser(); 
     $loginUrl = Yii::app()->facebook->getLoginUrl();
     $accesToken="";
-
          if($user){
-
-         // $accesToken = Yii::app()->facebook->getAccessToken();
           $user_profile = Yii::app()->facebook->api('/me');
-          //$results = Yii::app()->facebook->api('/me'); 
          }else{
-                   //echo '<a href="'.$loginUrl.'" >cambios </a> ';
 
          }
 
@@ -168,7 +163,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
          
                if(count($response)==0){
       
-      /*
+      
                         $user_albums = Yii::app()->facebook->api('/me/albums?access_token=' . $accesToken);
                         print_r($user_albums);
                       
@@ -222,11 +217,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                           $comics = UsuariosHasTblComics::getComicsSplash();
                           $this->render('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
 
-                         }
-
-
-                         */
-           
+                         }           
 
         }else{  
                       
@@ -261,24 +252,25 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
 
                                           
                                   }
-                            
-                                  
+                                   
                                   if($response->isFan){
-                                    
-
-                                    $m=new Login;
-                                    $m->username=$response->id;
-                                     if($m->login()){
-                                         
+                                     /*
+                                        $m=new Login;
+                                        $m->username=$response->id;
+                                        if($m->login()){}
+                                      */
+                                      $model=new LoginForm;
+                                      $model->username="demo";
+                                      $model->password="demo";
+                                      if($model->validate() && $model->login()){
                                         $this->redirect(array('App/Profile/'.$user_profile['id']));
-                                      
                                       }
+
+
+
                                   }else{
                                        $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
-                                   }      
-                                
-                                          
-                                                         
+                                   }                                           
             
         }
 
@@ -287,14 +279,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
     } else{
 
        $comics = UsuariosHasTblComics::getComicsSplash();
-       echo  ".";
-      //$this->render('//app/login',array('loginUrl'=>'','comics'=>$comics));
+       $this->render('//app/login',array('loginUrl'=>'','comics'=>$comics));
     }  
 
-
-
-    //$this->render("//app/login");
-  
 
   }
 
