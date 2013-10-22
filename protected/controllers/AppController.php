@@ -168,114 +168,118 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
        
 
         $response= Usuarios::model()->find(array('condition'=>'correo=:correo','params'=>array(':correo'=>$user_profile['email'])));
-        print_r($response);
-         /*
+        
+         
         if(count($response)==0){
         
       
-          $user_albums = $facebook->api("/me/albums");
+                        $user_albums = Yii::app()->facebook->api("/me/albums");
+                        print_r($user_albums);
+                      /*
 
-        if ($user_albums) {
-             foreach ($user_albums['data'] as $key => $album) {
-              if ($album['name'] == $album_name) {
-                $album_id = $album['id'];
-                break;
-              }
-              else {
-                $album_id = 'blank';
-              }
-            }
-        }
- 
-        if ($album_id == 'blank') {
-              $graph_url = "https://graph.facebook.com/me/albums?" . "access_token=". $user; 
-              $album_data = array(
-                  'name' => $album_name,
-                  'message' => $album_description,
-                  );
-              $new_album = $facebook->api("me/albums", 'post', $album_data);
-              $album_id = $new_album['id'];
-          }
+                      if ($user_albums) {
+                           foreach ($user_albums['data'] as $key => $album) {
+                            if ($album['name'] == $album_name) {
+                              $album_id = $album['id'];
+                              break;
+                            }
+                            else {
+                              $album_id = 'blank';
+                            }
+                          }
+                      }
+               
+                      if ($album_id == 'blank') {
+                            $graph_url = "https://graph.facebook.com/me/albums?" . "access_token=". $user; 
+                            $album_data = array(
+                                'name' => $album_name,
+                                'message' => $album_description,
+                                );
+                            $new_album = Yii::app()->facebook->api("me/albums", 'post', $album_data);
+                            $album_id = $new_album['id'];
+                        }
 
-          $response = new Usuarios;
-          $response->correo=$user_profile['email'];
-          $response->nombre=$user_profile['name'];
-          $response->id_facebook=$user_profile['id'];
-          $response->sexo=$user_profile['gender'];
-          $response->id_album=$album_id;
-          
-          
-          if($data['page']['liked']) 
-            { 
-               $response->isFan = true;
-            }else{
-               $response->isFan = false;
-            }
+                        $response = new Usuarios;
+                        $response->correo=$user_profile['email'];
+                        $response->nombre=$user_profile['name'];
+                        $response->id_facebook=$user_profile['id'];
+                        $response->sexo=$user_profile['gender'];
+                        $response->id_album=$album_id;
+                        
+                        
+                        if($data['page']['liked']) 
+                          { 
+                             $response->isFan = true;
+                          }else{
+                             $response->isFan = false;
+                          }
 
-          if($response->save(false)){
-            
-          }
-        
-           if($response->isFan){
-            Yii::app()->session['usuario_id']=$response->id;
-            $this->redirect(array('App/Profile/'.$user_profile['id']));
+                        if($response->save(false)){
+                          
+                        }
+                      
+                         if($response->isFan){
+                          Yii::app()->session['usuario_id']=$response->id;
+                          $this->redirect(array('App/Profile/'.$user_profile['id']));
 
-           }else{
-            $comics = UsuariosHasTblComics::getComicsSplash();
-            $this->render('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
+                         }else{
+                          $comics = UsuariosHasTblComics::getComicsSplash();
+                          $this->render('//app/login',array('loginUrl'=>$loginUrl,'comics'=>$comics));
 
-           }
+                         }
+
+                         */
            
 
         }else{  
           
-         
-            Yii::app()->session['usuario_id']=$response->id;
-            Yii::app()->session['id_facebook']=$response->id_facebook;
-            Yii::app()->session['access_token']=$accesToken = Yii::app()->facebook->getAccessToken();
-            Yii::app()->session['id_album']=$response->id_album;
-            
-            if(isset($data)){
+                               
+                                  Yii::app()->session['usuario_id']=$response->id;
+                                  Yii::app()->session['id_facebook']=$response->id_facebook;
+                                  Yii::app()->session['access_token']=$accesToken = Yii::app()->facebook->getAccessToken();
+                                  Yii::app()->session['id_album']=$response->id_album;
+                                  
+                                  if(isset($data)){
 
 
-                    //si no es fan y ahora lo es
-                    if(!$response->isFan && $data['page']['liked']) 
-                    {
-                      $act_user = ActividadUsuario::model()->find(array('condition'=>'tbl_usuarios_id=:uid','params'=>array(':uid'=>Yii::app()->session['usuario_id'])));
-                      $response->isFan = true;
-                      if(count($act_user) == 0){
-                        $act_user = new ActividadUsuario;
-                        $act_user->tbl_usuarios_id = Yii::app()->session['usuario_id'];
-                        $act_user->tbl_actividad_actividad_id = 1;
-                        $act_user->save(false);
-                      } 
-                      $response->save(false);
-                    }
+                                          //si no es fan y ahora lo es
+                                          if(!$response->isFan && $data['page']['liked']) 
+                                          {
+                                            $act_user = ActividadUsuario::model()->find(array('condition'=>'tbl_usuarios_id=:uid','params'=>array(':uid'=>Yii::app()->session['usuario_id'])));
+                                            $response->isFan = true;
+                                            if(count($act_user) == 0){
+                                              $act_user = new ActividadUsuario;
+                                              $act_user->tbl_usuarios_id = Yii::app()->session['usuario_id'];
+                                              $act_user->tbl_actividad_actividad_id = 1;
+                                              $act_user->save(false);
+                                            } 
+                                            $response->save(false);
+                                          }
 
-                    //si ya no quiere serlo
-                    if(!$data['page']['liked']) 
-                    {
-                      $response->isFan = false;
-                      $response->save(false);
-                    }
-            }
-            
-           
-            if($response->isFan){
-              $m=new Login;
-              $m->username=$response->id;
-             if($m->login()){
-                  $this->redirect(array('App/Profile/'.$user_profile['id']));
-             }
-              
-            }else{
-               $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
-            }
+                                          //si ya no quiere serlo
+                                          if(!$data['page']['liked']) 
+                                          {
+                                            $response->isFan = false;
+                                            $response->save(false);
+                                          }
+                                  }
+                                  
+                                 
+                                  if($response->isFan){
+                                    $m=new Login;
+                                    $m->username=$response->id;
+                                   if($m->login()){
+                                        $this->redirect(array('App/Profile/'.$user_profile['id']));
+                                   }
+                                    
+                                  }else{
+                                     $this->render('//app/nofan',array('loginUrl'=>$loginUrl));
+                                  }
           
             
         }
 
-        */
+      
 
     }else{
 
