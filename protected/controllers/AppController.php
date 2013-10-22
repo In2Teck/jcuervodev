@@ -235,8 +235,7 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
                                   Yii::app()->session['id_facebook']=$response->id_facebook;
                                   Yii::app()->session['access_token']=$accesToken = Yii::app()->facebook->getAccessToken();
                                   Yii::app()->session['id_album']=$response->id_album;
-echo "entro";
-                    /*
+                    
                                   if(isset($data)){
 
                                          //si no es fan y ahora lo es
@@ -262,6 +261,8 @@ echo "entro";
 
                                           
                                   }
+
+                                  /*
                                   
 
 
