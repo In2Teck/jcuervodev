@@ -80,7 +80,7 @@ $this->layout='admin';
 
 ?>
 <script type="text/javascript">
-	var BaseUrl = "/php2/jcuervo"; 
+	var BaseUrl = "<?php echo Yii::app()->request->baseUrl; ?>"; 
 	$('input[type="checkbox"]').live("change",function () {
         var id = $(this).val();
         var check = $(this).attr('checked');

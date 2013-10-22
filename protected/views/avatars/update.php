@@ -25,7 +25,7 @@
 <a href="#" id="js-sendBack" class="btn"><i class="icon-circle-arrow-down"></i><div>Mandar atrás</div></a>
 <a href="#" id="js-resetRotation" class="btn"><i class="icon-refresh"></i><div>Reestablecer</div></a>
 <a href="#" id="js-removeElement" class="btn"><i class="icon-trash"></i><div>Eliminar</div></a>
-<div class="saveBtn"><a href="/php2/jcuervo/index.php" class="btn"><i class="icon-chevron-left"></i> Regresar</a>
+<div class="saveBtn"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php" class="btn"><i class="icon-chevron-left"></i> Regresar</a>
 <a href="#" id="js-listenerStat" class="btn"><i class="icon-save"></i> Guardar</a></div>
        
         </div>
