@@ -244,8 +244,8 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
               $m->username=$response->id;
               $m->login();
 
-               echo Yii::app()->user->title;
-              //$this->redirect(array('App/Profile/'.$user_profile['id']));
+              // echo Yii::app()->user->title;
+              $this->redirect(array('App/Profile/'.$user_profile['id']));
 
             }else{
                $this->renderPartial('//app/nofan',array('loginUrl'=>$loginUrl));
