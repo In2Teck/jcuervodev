@@ -233,7 +233,9 @@ from tbl_usuarios_has_tbl_comics c inner join tbl_usuarios b on b.id = c.tbl_usu
            
 
         }else{  
-                        /*
+                      
+
+                      echo "hola";  /*
                                
                                   Yii::app()->session['usuario_id']=$response->id;
                                   Yii::app()->session['id_facebook']=$response->id_facebook;
