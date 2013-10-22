@@ -157,13 +157,11 @@ $(".share").live('click',function(){
         $('#NoCompartido').html(data);
       }
     });
-
-    alert(window.protocol+"memegenerator.in2teck.com"+img);
     var obj = {
       method: 'feed',
       redirect_uri: window.protocol+"memegenerator.in2teck.com/index.php",
       link: window.protocol+"memegenerator.in2teck.com/index.php",
-      picture: window.protocol+"memegenerator.in2teck.com"+img,
+      picture: window.protocol+"apps.t2omedia.com.mx/"+img,
       name: 'Especial Meme Generator',
       caption: 'Crea tu meme',
       description: 'Me gusta este Meme, puedes verlo aquí'
