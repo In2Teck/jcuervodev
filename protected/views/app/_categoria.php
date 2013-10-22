@@ -1,7 +1,7 @@
 <section id="panelPersonaje">
         <div id="memeGeneratorLogo"><span>Memespecial</span><span>Generator</span></div>
         <h1><?echo $json['usuario']['nombre']; ?></h1>
-        <div><? echo "<img src='https://198.101.242.113/jcuervodev/Avatar/".$json['usuario']['avatar_img']."' />"; ?></div>
+        <div><? echo "<img src='".Yii::app()->request->baseUrl."/Avatar/".$json['usuario']['avatar_img']."' />"; ?></div>
         <? if(Yii::app()->session['id_facebook']==$json['usuario']['id_facebook']){ ?>
         <div id="actions"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/avatars/update/<?echo Yii::app()->session['usuario_id']; ?>" class="btn"><i class="icon-edit"></i> Editar</a></div>
         <? }?>
