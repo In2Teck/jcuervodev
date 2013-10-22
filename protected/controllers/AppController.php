@@ -17,15 +17,15 @@ class AppController extends Controller
     return array(
       array('allow',  // allow all users to perform 'index' and 'view' actions
         'actions'=>array('view','Logout','login','Dest','error','admin','AdminUsuarios','AdminComics','FBlogin','index'),
-        'users'=>array('*'),
+        'roles'=>array('*'),
       ),
       array('allow', // allow authenticated user to perform 'create' and 'update' actions
         'actions'=>array('create','update','create','profile','UpdatePieza','CrearAvatar','UpdateTipoPieza','MisMemes','MisAmigos','Categoria','Dest','Catmasvist','Catmascomp','Catjoscuer','Catmascome','Detalle','F'),
-        'users'=>array('@'),
+        'roles'=>array('Usuario'),
       ),
       array('allow', // allow admin user to perform 'admin' and 'delete' actions
         'actions'=>array('admin','delete','index'),
-        'users'=>array('admin'),
+        'roles'=>array('Usuario'),
       ),
       array('deny',  // deny all users
         'users'=>array('*'),
